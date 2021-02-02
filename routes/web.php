@@ -56,6 +56,7 @@ Route::post('Empleados/Registro','EmpleadosController@Registro');
 
 Route::get('MisClientes','MisClientesController@index');
 Route::post('Clientes/Registro','MisClientesController@Registro');
+Route::post('MisClientes/ConfirmarRegistro/','MisClientesController@ConfirmarRegistro');
 
 Route::get('/clear-cache', function() {
     Artisan::call('cache:clear');

@@ -25,7 +25,19 @@ class MisClientesController extends Controller
     }
 
     public function Registro(Request $request)
-    {	$TiendaEstado          =     Sucursal::find(Auth::user()->id_sucursal);
+    {	
+    	$seacrhClient          =     Cliente::where('cu1','=',$request['cu1'])
+    										->where('cu2','=',$request['cu2'])
+    										->where('cu3','=',$request['cu3'])
+    										->where('cu4','=',$request['cu4'])
+    										->count();
+    	if($seacrhClient == 1)
+    	{
+    		dd("Cliente ya Existe ");
+    	}else{
+    	
+
+    	$TiendaEstado          =     Sucursal::find(Auth::user()->id_sucursal);
     	$cliente               =     new Cliente;
     	$cliente->cu1          =     $request['cu1'];
     	$cliente->cu2          =     $request['cu2'];
@@ -44,7 +56,28 @@ class MisClientesController extends Controller
     	$cliente->id_empleado  =     Auth::user()->id;
     	$cliente->save();
 
+    	}
     	return redirect("MisClientes");
+
+    }
+
+    public function ConfirmarRegistro(Request $request)
+    {
+    	$seacrhClient          =     Cliente::where('cu1','=',$request['cu1'])
+    										->where('cu2','=',$request['cu2'])
+    										->where('cu3','=',$request['cu3'])
+    										->where('cu4','=',$request['cu4'])
+    										->count();
+    	if($seacrhClient == 1)
+    	{	$Client          =     Cliente::where('cu1','=',$request['cu1'])
+    										->where('cu2','=',$request['cu2'])
+    										->where('cu3','=',$request['cu3'])
+    										->where('cu4','=',$request['cu4'])
+    										->first();
+    		return '<b>'.$request['cu1']."-".$request['cu2']."-".$request['cu3']."-".$request['cu4']."</b> Este Cliente unico esta registrado a nombre de <b>".$Client->nombre." ".$Client->apellido_pa.' </b> <button class="btn btn-danger btn-xs" type="button"><i class="fa fa-eye"></i> Ver Cliente</button>';
+    	}else{
+    		return 1;
+    	}
 
     }
 }

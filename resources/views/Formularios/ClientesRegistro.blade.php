@@ -9,6 +9,15 @@
     margin-right: 15px;
     margin-left: 7px;
   }
+  #RespuestaCliente{
+    background: #f9bad1;
+    font-size: 13px;
+    padding: 10px;
+    color:#6d0000;
+    border: solid 1px black;
+    border-radius: 4px;
+    display: none;
+  }
 </style>
   <form method="post" action="{{url('Clientes/Registro')}}">
   {{ csrf_field() }}          
@@ -19,19 +28,22 @@
                 <div class="row form-group">
                    
                   <div class="cu">
-                    <input type="text" class="form-control"   style="width: 65px;" maxlength="4" name="cu1" >
+                    <input type="text" class="form-control"   style="width: 65px;" maxlength="4" name="cu1"  id="cu1">
                   </div>
                   <div class="cu" >
-                    <input type="text" class="form-control"   style="width: 65px;" maxlength="4" name="cu2">
+                    <input type="text" class="form-control"   style="width: 65px;" maxlength="4" name="cu2" id="cu2">
                   </div>
                   <div class="cu" >
-                    <input type="text" class="form-control"   style="width: 65px;" maxlength="4" name="cu3">
+                    <input type="text" class="form-control"   style="width: 65px;" maxlength="4" name="cu3" id="cu3">
                   </div>
                   <div class="col-1" >
-                    <input type="text" class="form-control"   style="width: 65px;" maxlength="5" name="cu4">
+                    <input type="text" class="form-control"   style="width: 65px;" maxlength="5" name="cu4" id="cu4">
                   </div>
                 </div>
-
+                <div class="form-group">
+                  <div id="RespuestaCliente"></div>
+                  <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+                </div>
               <div class="form-group">
                     <label >Nombre</label>
                     <input type="text" class="form-control" id="Nombre" placeholder="Nombre" name="Nombre">
@@ -115,10 +127,41 @@
                                             alert("error petición actualize o cantacte al programador");
                                       },
                                       success: function(data){
+
                                        $("#RespuestaCiudad").html(data);
                                 }
                           });
       });
-      
+      $("#Nombre").click(function(){
+        
+        var cu1     = $("#cu1").val();
+        var cu2     = $("#cu2").val();
+        var cu3     = $("#cu3").val();
+        var cu4     = $("#cu4").val();
+        var token   = $("#token").val();
+                            
+        var urls       =  "<?php echo url('MisClientes/ConfirmarRegistro')  ?>";
+                              $.ajax({
+                                      type: "post",
+                                      url: urls,
+                                      data:'_token='+token+'&cu1='+cu1+'&cu2='+cu2+'&cu3='+cu3+'&cu4='+cu4,
+                                      dataType: "html",
+                                      
+                                      error: function(){
+                                            alert("error petición actualize o cantacte al programador");
+                                      },
+                                      success: function(data){
+                                      if(data == "1")
+                                       {
+                                        $("#RespuestaCliente").css('display','none');
+                                       }else{
+                                        $("#RespuestaCliente").css('display','block');
+                                        $("#RespuestaCliente").html(data);
+
+                                       }
+                                       
+                                }
+                          });
+      });
    });
  </script>
