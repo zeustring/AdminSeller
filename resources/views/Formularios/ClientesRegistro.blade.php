@@ -28,16 +28,16 @@
                 <div class="row form-group">
                    
                   <div class="cu">
-                    <input type="text" class="form-control"   style="width: 65px;" maxlength="4" name="cu1"  id="cu1">
+                    <input type="text" class="form-control validanumericos"   style="width: 65px;"  name="cu1" id="cu1" maxlength="4" onkeyup="if (this.value.length == this.getAttribute('maxlength')) cu2.focus()">
                   </div>
                   <div class="cu" >
-                    <input type="text" class="form-control"   style="width: 65px;" maxlength="4" name="cu2" id="cu2">
+                    <input type="text" class="form-control validanumericos"   style="width: 65px;" name="cu2" id="cu2" maxlength="4" onkeyup="if (this.value.length == this.getAttribute('maxlength')) cu3.focus()">
                   </div>
                   <div class="cu" >
-                    <input type="text" class="form-control"   style="width: 65px;" maxlength="4" name="cu3" id="cu3">
+                    <input type="text" class="form-control validanumericos"   style="width: 65px;" name="cu3" id="cu3" maxlength="4" onkeyup="if (this.value.length == this.getAttribute('maxlength')) cu4.focus()">
                   </div>
                   <div class="col-1" >
-                    <input type="text" class="form-control"   style="width: 65px;" maxlength="5" name="cu4" id="cu4">
+                    <input type="text" class="form-control validanumericos"   style="width: 70px;" name="cu4" id="cu4" maxlength="5">
                   </div>
                 </div>
                 <div class="form-group">
@@ -46,27 +46,27 @@
                 </div>
               <div class="form-group">
                     <label >Nombre</label>
-                    <input type="text" class="form-control" id="Nombre" placeholder="Nombre" name="Nombre">
+                    <input type="text" class="form-control" id="Nombre" placeholder="Nombre" name="Nombre" maxlength="20">
               </div>
               <div class="form-group">
                     <label >Apellido Paterno</label>
-                    <input type="num" class="form-control" id="ApellidoPa" placeholder="Apellido Paterno" name="ApellidoPa">
+                    <input type="num" class="form-control" id="ApellidoPa" placeholder="Apellido Paterno" name="ApellidoPa" maxlength="20">
               </div>
               <div class="form-group">
                     <label >Apellido Materno</label>
-                    <input type="num" class="form-control" id="ApellidoMa" placeholder="Apellido Materno" name="ApellidoMa">
+                    <input type="num" class="form-control" id="ApellidoMa" placeholder="Apellido Materno" name="ApellidoMa" maxlength="20">
               </div>
               <div class="form-group">
                     <label >Calle</label>
-                    <input type="text" class="form-control" id="Calle" placeholder="Calle" name="Calle">
+                    <input type="text" class="form-control" id="Calle" placeholder="Calle" name="Calle" maxlength="35">
               </div>
               <div class="form-group">
                     <label >No Externo</label>
-                    <input type="text" class="form-control" id="NoExterno" placeholder="No Externo" name="NoExterno">
+                    <input type="text" class="form-control" id="NoExterno" placeholder="No Externo" name="NoExterno" maxlength="10">
               </div>
               <div class="form-group">
                     <label >No Interno</label>
-                    <input type="text" class="form-control" id="NoInterno" placeholder="No Interno" name="NoInterno">
+                    <input type="text" class="form-control" id="NoInterno" placeholder="No Interno" name="NoInterno" maxlength="10">
               </div>
 
               <label >Ciudad/Delegación</label>
@@ -115,6 +115,14 @@
 
  <script type="text/javascript">
    $(document).ready(function(){
+    var ele = document.querySelectorAll('.validanumericos')[0];
+  ele.onkeypress = function(e) {
+     if(isNaN(this.value+String.fromCharCode(e.charCode)))
+        return false;
+  }
+  ele.onpaste = function(e){
+     e.preventDefault();
+  }
       $("#OtraCiudad").click(function(){
           var urls       =  "<?php echo url('Formularios/OtraCiudad')  ?>";
 

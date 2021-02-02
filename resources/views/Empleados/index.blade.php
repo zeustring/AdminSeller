@@ -29,7 +29,7 @@
          
          <div class="row">
          	<div class="col-sm-12 card-body table-responsive p-0">
-         		<table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info" style="min-width:750px;">
+         		<table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info" style="min-width:1100px;">
                   <thead>
                   <tr role="row">
                   	<th >
@@ -54,14 +54,15 @@
                   <tr role="row" class="odd">
                     
                     <td>{{$row->no_empleado}}</td>
-                    <td>{{$row->nombre}}</td>
-                    <td>{{$row->sucursal}}</td>
-                    <td>Sin membrecia</td>
+                    <td>{{$row->nombre}} {{$row->apellido_pa}} {{$row->apellido_ma}}</td>
+                    <td>{{$row->no_sucursal}} {{$row->sucursal}}</td>
+                    <td>Sin membrecia</td> 
                     <td>
-                      <button class="btn btn-success btn-xs">Editar</button>
-                      <button class="btn btn-info btn-xs">Detalles</button>
-                      <button class="btn bg-purple btn-xs">Membrecia</button>
-                        
+                      <center>
+                        <button class="btn btn-success btn-xs">Editar</button>
+                        <button class="btn btn-info btn-xs">Detalles</button>
+                        <button class="btn bg-purple btn-xs">Membrecia</button>
+                      </center>
                   @endforeach   
                     </td>
                   </tr>

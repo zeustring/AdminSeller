@@ -29,16 +29,16 @@
          
          <div class="row">
           <div class="col-sm-12 card-body table-responsive p-0">
-            <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info" style="min-width:1000px; font-size: 14px;">
+            <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info" style="min-width:1100px; font-size: 14px;">
                   <thead>
                   <tr role="row">
-                    <th width="18%">
+                    <th width="17%">
                      CU
                     </th>
-                    <th width="25%">
+                    <th width="22%">
                      Nombre
                     </th>
-                    <th width="40%">
+                    <th width="42%">
                      Dirección
                     </th>
                     <th width="5%">
@@ -46,7 +46,7 @@
                      Estatus
                      </center>
                     </th>
-                    <th width="17%" >
+                    <th width="16%" >
                      <center>Opiones</center>
                     </th>
                   </thead>

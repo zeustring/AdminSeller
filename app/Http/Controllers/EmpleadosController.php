@@ -17,6 +17,8 @@ class EmpleadosController extends Controller
                              ->join('sucursales','sucursales.id','=','empleados.id_sucursal')
                              ->select('empleados.nombre as nombre',
                                       'empleados.no_empleado as no_empleado',
+                                      'empleados.apellido_pa as apellido_pa',
+                                      'empleados.apellido_ma as apellido_ma',
                                       'sucursales.no_sucursal as no_sucursal',
                                       'sucursales.nombre as sucursal')
                              ->orderBy('empleados.id','desc')
