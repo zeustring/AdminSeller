@@ -22,6 +22,14 @@
   <!-- Google Font: Source Sans Pro -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <style type="text/css">
+  .BotonModal{
+    float: right;
+  }
+  .card-title{
+    margin-top: 10px;
+  }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->

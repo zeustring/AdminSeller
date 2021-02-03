@@ -80,4 +80,23 @@ class MisClientesController extends Controller
     	}
 
     }
+    public function Editar(Request $request)
+    {
+
+    	$cliente               =     Cliente::find($request['ID']);
+    	$cliente->cu1          =     $request['cu1'];
+    	$cliente->cu2          =     $request['cu2'];
+    	$cliente->cu3          =     $request['cu3'];
+    	$cliente->cu4          =     $request['cu4'];
+    	$cliente->nombre       =     $request['Nombre'];
+    	$cliente->apellido_pa  =     $request['ApellidoPa'];
+    	$cliente->apellido_ma  =     $request['ApellidoMa'];
+    	$cliente->calle        =     $request['Calle'];
+    	$cliente->no_ext       =     $request['NoExterno'];
+    	$cliente->no_int       =     $request['NoInterno'];
+    	$cliente->id_ciudad    =     $request['IdCiudad'];
+    	$cliente->id_colonia   =     $request['IdColonia'];
+    	$cliente->save();
+    	return redirect('MisClientes');
+    }
 }

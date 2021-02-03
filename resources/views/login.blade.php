@@ -2,7 +2,7 @@
 @section('body')
     <div class="login-box">
       <div class="login-logo">
-        <a href="../../index2.html"><b>Admin</b>Seller</a>
+        <a href="#"><b>Admin</b>Seller</a>
       </div>
       <!-- /.login-logo -->
       <div class="card">
@@ -13,15 +13,15 @@
 			  
             <div class="input-group mb-3">
 			{{ csrf_field()}}
-              <input type="num" class="form-control" placeholder="No Empleado" name="no_empleado">
+              <input type="number" class="form-control" placeholder="No Empleado" name="no_empleado" autocomplete="off">
               <div class="input-group-append">
                 <div class="input-group-text">
-                  <span class="fas fa-envelope"></span>
+                  <span class="fas fa-user"></span>
                 </div>
               </div>
             </div>
             <div class="input-group mb-3">
-              <input type="password" class="form-control" placeholder="Password" name="password">
+              <input type="password" class="form-control" placeholder="Password" name="password" autocomplete="off">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-lock"></span>

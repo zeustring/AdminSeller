@@ -19,7 +19,7 @@
     display: none;
   }
 </style>
-  <form method="post" action="{{url('Clientes/Registro')}}">
+  <form method="post" action="{{url('Clientes/Editar')}}">
   {{ csrf_field() }}          
  <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                  
@@ -42,7 +42,7 @@
                 </div>
                 
                   <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
-                
+                  <input type="hidden" name="ID" value="{{$cliente->id}}">
               <div class="form-group">
                     <label >Nombre</label>
                     <input type="text" class="form-control" id="Nombre" placeholder="Nombre" name="Nombre" maxlength="20" value="{{$cliente->nombre}}">

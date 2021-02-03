@@ -1,35 +1,27 @@
 @extends('layouts.app-menu')
 @section('contend')
+
     <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Listado de Mis Clientes</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-         
-          
-             
-              
-              <div id="example1_filter card-body table-responsive p-0" >
-               
-                <button class="btn btn-success" 
+                <h3 class="card-title">Mis Clientes</h3>
+                 <button class="btn btn-success BotonModal" 
                         data-toggle="modal" 
                         data-target="#modal-lg"
                         id="MisClientesRegistro"> 
                         <i class="fas fa-users"></i>
                         Nuevo
                 </button>
-             
-                <label >
-                 <input type="search" class="form-control" placeholder="" aria-controls="Buscar Cliente">
-                </label>
-              
-              </div><br>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+         
+          
+          
              
          
          <div class="row">
           <div class="col-sm-12 card-body table-responsive p-0">
-            <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info" style="min-width:1100px; font-size: 14px;">
+            <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info" style="max-width:1100px; min-width: 1000px; font-size: 14px;">
                   <thead>
                   <tr role="row">
                     <th width="17%">
@@ -53,7 +45,7 @@
                   <tbody>
 
                  @foreach($MisClientes as $row) 
-                  <tr role="row" class="odd">
+                  <tr role="row" class="odd" >
                     <td>{{$row->cu1}}-{{$row->cu2}}-{{$row->cu3}}-{{$row->cu4}}</td>
                     <td>{{$row->nombre}} {{$row->apellido_pa}} {{$row->apellido_ma}}</td>
                     <td>  {{$row->calle}} 

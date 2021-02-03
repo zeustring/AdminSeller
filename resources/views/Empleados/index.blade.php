@@ -1,8 +1,16 @@
 @extends('layouts.app-menu')
 @section('contend')
+
     <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Listado de Empleados</h3>
+                <button class="btn btn-success BotonModal" 
+                        data-toggle="modal" 
+                        data-target="#modal-lg"
+                        id="EmpleadoRegistro"> 
+                        <i class="fas fa-store-alt"></i>
+                        Nuevo
+                </button>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -12,13 +20,7 @@
               
              	<div id="example1_filter card-body table-responsive p-0" >
                
-             		<button class="btn btn-success" 
-                        data-toggle="modal" 
-                        data-target="#modal-lg"
-                        id="EmpleadoRegistro"> 
-                        <i class="fas fa-store-alt"></i>
-                        Nuevo
-                </button>
+
              
                 <label >
                  <input type="search" class="form-control" placeholder="" aria-controls="Buscar Tienda">
@@ -29,7 +31,7 @@
          
          <div class="row">
          	<div class="col-sm-12 card-body table-responsive p-0">
-         		<table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info" style="min-width:1100px;">
+         		<table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info" style="max-width:1100px; min-width: 1000px;">
                   <thead>
                   <tr role="row">
                   	<th >
