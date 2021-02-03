@@ -73,7 +73,11 @@
                       <button class="btn bg-purple btn-xs" style="font-size: 15px;">
                         <i class="fas fa-envelope-open-text"></i>
                       </button>
-                      <button class="btn btn-success btn-xs" style="font-size: 15px;">
+                      <button class="btn btn-success btn-xs EditarCliente"
+                              style="font-size: 15px;"
+                              data-toggle="modal" 
+                              data-target="#modal-lg"
+                              id="{{$row->id}}">
                         <i class="fa fa-edit"></i>
                       </button>
                       <button class="btn btn-info btn-xs" style="font-size: 15px;">
@@ -121,7 +125,26 @@
                                 }
                           });
                   });
+                  $(".EditarCliente").click(function(){
+                            var id         =  $(this).attr('id');
+                            var urls       =  "<?php echo url('Formularios/EditarCliente')  ?>";
+
+                             $.ajax({
+                                      type: "GET",
+                                      url: urls+'/'+id,
+                                      dataType: "html",
+                                      
+                                      error: function(){
+                                            alert("error petición actualize o cantacte al programador");
+                                      },
+                                      success: function(data){
+                                       $("#RespuestaModal").html(data);
+                                }
+                          });
+                  });
+               
                });
+
 </script>
 @endsection
  

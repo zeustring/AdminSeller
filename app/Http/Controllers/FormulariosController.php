@@ -8,9 +8,11 @@ use App\Municipio;
 use App\Colonia;
 use App\Ciudad;
 use App\Sucursal;
+use App\Cliente;
 use App\Jerarquia;
 use App\Canal;
 use Auth;
+use DB;
 class FormulariosController extends Controller
 {
     public function SucursalRegistro()
@@ -83,5 +85,26 @@ class FormulariosController extends Controller
                                    ->orderBy('nombre','asc')
                                    ->get();
         return view('Formularios.OtrasColonias',['colonias'   => $colonias]);
+    }
+    public function EditarCliente($id)
+    {
+        $cliente          =   DB::table('clientes')
+                                ->where('clientes.id','=',$id)
+                                ->join('ciudades','ciudades.id','=','clientes.id_ciudad')
+                                ->join('colonias','colonias.id','=','clientes.id_colonia')
+                                ->select('clientes.*',
+                                         'ciudades.nombre as ciudad_nombre',
+                                         'ciudades.id as ciudad_id',
+                                         'colonias.nombre as colonias_nombre',
+                                         'colonias.id as colonias_id')
+                                ->first();
+        $sucursal    =     Sucursal::where('id','=',Auth::user()->id_sucursal)->first();
+        $ciudad      =     Ciudad::where('id','=',$sucursal->id_ciudad)->first();
+        $colonias    =     Colonia::where('id_ciudad','=',$ciudad->id)
+                                 ->orderBy('nombre','asc')
+                                 ->get();
+        
+        return view('Formularios.EditarClientes',['cliente'  => $cliente,
+                                                  'colonias' => $colonias]);
     }
 }

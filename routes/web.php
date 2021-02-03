@@ -50,6 +50,7 @@ Route::get('Formularios/Colonias','FormulariosController@ColoniasFormulario');
 Route::get('Formularios/ClientesRegistro','FormulariosController@ClientesRegistro');
 Route::get('Formularios/OtraCiudad','FormulariosController@OtraCiudad');
 Route::get('Formularios/OtrasColonias/{idCiudad}','FormulariosController@OtrasColonias');
+Route::get('Formularios/EditarCliente/{id}','FormulariosController@EditarCliente');
 
 Route::get('Empleados','EmpleadosController@index');
 Route::post('Empleados/Registro','EmpleadosController@Registro');
