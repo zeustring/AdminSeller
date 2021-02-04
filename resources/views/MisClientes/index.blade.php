@@ -103,7 +103,7 @@
                  $("#MisClientesRegistro").click(function(){
                             
                             var urls       =  "<?php echo url('Formularios/ClientesRegistro')  ?>";
-
+                            $("#RespuestaModal").css('display','none');
                              $.ajax({
                                       type: "GET",
                                       url: urls,
@@ -113,6 +113,7 @@
                                             alert("error petición actualize o cantacte al programador");
                                       },
                                       success: function(data){
+                                        $("#RespuestaModal").css('display','block');
                                        $("#RespuestaModal").html(data);
                                 }
                           });
@@ -120,7 +121,7 @@
                   $(".EditarCliente").click(function(){
                             var id         =  $(this).attr('id');
                             var urls       =  "<?php echo url('Formularios/EditarCliente')  ?>";
-
+                            $("#RespuestaModal").css('display','none');
                              $.ajax({
                                       type: "GET",
                                       url: urls+'/'+id,
@@ -130,6 +131,7 @@
                                             alert("error petición actualize o cantacte al programador");
                                       },
                                       success: function(data){
+                                        $("#RespuestaModal").css('display','block');
                                        $("#RespuestaModal").html(data);
                                 }
                           });

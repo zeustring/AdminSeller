@@ -213,7 +213,7 @@
 
                 
                  $("#SearchCliente").click(function(){
-                            
+                            $("#RespuestaModal").css('display','none');
                             var urls       =  "<?php echo url('Formularios/SearchCliente')  ?>";
 
                              $.ajax({
@@ -225,6 +225,7 @@
                                             alert("error petición actualize o cantacte al programador");
                                       },
                                       success: function(data){
+                                        $("#RespuestaModal").css('display','block');
                                        $("#RespuestaModal").html(data);
                                 }
                           });

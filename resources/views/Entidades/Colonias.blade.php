@@ -84,7 +84,7 @@
                  $("#Colonia").click(function(){
                             
                             var urls       =  "<?php echo url('Formularios/Colonias')  ?>";
-
+                            $("#RespuestaModal").css('display','none');
                              $.ajax({
                                       type: "GET",
                                       url: urls,
@@ -94,6 +94,7 @@
                                             alert("error petición actualize o cantacte al programador");
                                       },
                                       success: function(data){
+                                      $("#RespuestaModal").css('display','block');
                                        $("#RespuestaModal").html(data);
                                 }
                           });

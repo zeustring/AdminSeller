@@ -125,7 +125,7 @@
   }
       $("#OtraCiudad").click(function(){
           var urls       =  "<?php echo url('Formularios/OtraCiudad')  ?>";
-
+                              $("#RespuestaModal").css('display','none');
                              $.ajax({
                                       type: "GET",
                                       url: urls,
@@ -136,7 +136,8 @@
                                       },
                                       success: function(data){
 
-                                       $("#RespuestaCiudad").html(data);
+                                       $("#RespuestaModal").css('display','block');
+                                       $("#RespuestaModal").html(data);
                                 }
                           });
       });

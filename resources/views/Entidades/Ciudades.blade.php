@@ -85,7 +85,7 @@
                  $("#Ciudad").click(function(){
                             
                             var urls       =  "<?php echo url('Formularios/Ciudades')  ?>";
-
+                            $("#RespuestaModal").css('display','none');
                              $.ajax({
                                       type: "GET",
                                       url: urls,
@@ -95,6 +95,7 @@
                                             alert("error petición actualize o cantacte al programador");
                                       },
                                       success: function(data){
+                                       $("#RespuestaModal").css('display','block');
                                        $("#RespuestaModal").html(data);
                                 }
                           });
