@@ -53,7 +53,10 @@
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
+        <a class="nav-link"
+           data-toggle="modal" 
+           data-target="#modal-lg"
+           id="SearchCliente">
           <i class="far fa-user"></i>
           
         </a>
@@ -197,7 +200,37 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+<div class="modal fade show" id="modal-lg"  aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content" id="RespuestaModal">
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+</div>
+<script type="text/javascript">
+              $(document).ready(function(){
 
+                
+                 $("#SearchCliente").click(function(){
+                            
+                            var urls       =  "<?php echo url('Formularios/SearchCliente')  ?>";
+
+                             $.ajax({
+                                      type: "GET",
+                                      url: urls,
+                                      dataType: "html",
+                                      
+                                      error: function(){
+                                            alert("error petición actualize o cantacte al programador");
+                                      },
+                                      success: function(data){
+                                       $("#RespuestaModal").html(data);
+                                }
+                          });
+                  });
+               });
+</script>
 <!-- jQuery -->
 <script src="{{url('plugins/jquery/jquery.min.js')}}"></script>
 

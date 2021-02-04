@@ -107,4 +107,9 @@ class FormulariosController extends Controller
         return view('Formularios.EditarClientes',['cliente'  => $cliente,
                                                   'colonias' => $colonias]);
     }
+
+    public function SearchCliente()
+    {
+        return view('Formularios.SearchClientes');
+    }
 }
