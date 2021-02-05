@@ -49,6 +49,8 @@ class MisClientesController extends Controller
     	$cliente->calle        =     $request['Calle'];
     	$cliente->no_ext       =     $request['NoExterno'];
     	$cliente->no_int       =     $request['NoInterno'];
+        $cliente->tel          =     $request['Tel'];
+        $cliente->email        =     $request['Email'];
     	$cliente->id_estado    =     $TiendaEstado->id_estado;
     	$cliente->id_ciudad    =     $request['IdCiudad'];
     	$cliente->id_colonia   =     $request['IdColonia'];
@@ -94,6 +96,8 @@ class MisClientesController extends Controller
     	$cliente->calle        =     $request['Calle'];
     	$cliente->no_ext       =     $request['NoExterno'];
     	$cliente->no_int       =     $request['NoInterno'];
+        $cliente->tel          =     $request['Tel'];
+        $cliente->email        =     $request['Email'];
     	$cliente->id_ciudad    =     $request['IdCiudad'];
     	$cliente->id_colonia   =     $request['IdColonia'];
     	$cliente->save();

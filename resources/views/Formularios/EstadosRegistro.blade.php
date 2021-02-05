@@ -12,13 +12,16 @@
 
               <div class="form-group">
                     <label >Nombre Estado</label>
-                    <input type="text" class="form-control" id="Estado" placeholder="Nombre Estado" name="nombre">
+                    <input type="text" class="form-control" id="Estado" placeholder="Nombre Estado" name="nombre" autocomplete="off">
               </div>
-              <div class="form-group">
-                    <button class="btn btn-success aling-right">
-                     <i class="fa fa-save"></i>
-                     Registrar
-                    </button>
+              <div class="form-group">    
+                <center>    
+                 <button class="btn boton-modal-large" 
+                         type="submit">
+                          <i class="fas fa-save"></i> 
+                          Registrar Colonia
+                 </button>
+                </center>
               </div>
 
             </div>

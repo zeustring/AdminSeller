@@ -17,6 +17,8 @@ class Cliente extends Model
 							  'calle',
 							  'no_ext',
 							  'no_int',
+							  'tel',
+							  'email',
 							  'id_colonia',
 							  'id_ciudad',
 							  'id_estado',

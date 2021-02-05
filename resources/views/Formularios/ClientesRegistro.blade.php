@@ -28,13 +28,13 @@
                 <div class="row form-group">
                    
                   <div class="cu">
-                    <input type="text" class="form-control validanumericos"   style="width: 65px;"  name="cu1" id="cu1" maxlength="4" onkeyup="if (this.value.length == this.getAttribute('maxlength')) cu2.focus()" autocomplete="off">
+                    <input type="text" class="form-control validanumericos"   style="width: 65px;"  name="cu1" id="cu1" maxlength="4" onkeyup="if (this.value.length == this.getAttribute('maxlength')) cu2.focus()" autocomplete="off" required>
                   </div>
                   <div class="cu" >
-                    <input type="text" class="form-control validanumericos"   style="width: 65px;" name="cu2" id="cu2" maxlength="4" onkeyup="if (this.value.length == this.getAttribute('maxlength')) cu3.focus()" autocomplete="off">
+                    <input type="text" class="form-control validanumericos"   style="width: 65px;" name="cu2" id="cu2" maxlength="4" onkeyup="if (this.value.length == this.getAttribute('maxlength')) cu3.focus()" autocomplete="off" required>
                   </div>
                   <div class="cu" >
-                    <input type="text" class="form-control validanumericos"   style="width: 65px;" name="cu3" id="cu3" maxlength="4" onkeyup="if (this.value.length == this.getAttribute('maxlength')) cu4.focus()" autocomplete="off">
+                    <input type="text" class="form-control validanumericos"   style="width: 65px;" name="cu3" id="cu3" maxlength="4" onkeyup="if (this.value.length == this.getAttribute('maxlength')) cu4.focus()" autocomplete="off" required>
                   </div>
                   <div class="col-1" >
                     <input type="text" class="form-control validanumericos"   style="width: 70px;" name="cu4" id="cu4" maxlength="5" autocomplete="off">
@@ -46,19 +46,19 @@
                 </div>
               <div class="form-group">
                     <label >Nombre</label>
-                    <input type="text" class="form-control" id="Nombre" placeholder="Nombre" name="Nombre" maxlength="20" autocomplete="off">
+                    <input type="text" class="form-control" id="Nombre" placeholder="Nombre" name="Nombre" maxlength="20" autocomplete="off" required>
               </div>
               <div class="form-group">
                     <label >Apellido Paterno</label>
-                    <input type="num" class="form-control" id="ApellidoPa" placeholder="Apellido Paterno" name="ApellidoPa" maxlength="20" autocomplete="off">
+                    <input type="num" class="form-control" id="ApellidoPa" placeholder="Apellido Paterno" name="ApellidoPa" maxlength="20" autocomplete="off" >
               </div>
               <div class="form-group">
                     <label >Apellido Materno</label>
-                    <input type="num" class="form-control" id="ApellidoMa" placeholder="Apellido Materno" name="ApellidoMa" maxlength="20" autocomplete="off">
+                    <input type="num" class="form-control" id="ApellidoMa" placeholder="Apellido Materno" name="ApellidoMa" maxlength="20" autocomplete="off" >
               </div>
               <div class="form-group">
                     <label >Calle</label>
-                    <input type="text" class="form-control" id="Calle" placeholder="Calle" name="Calle" maxlength="35" autocomplete="off">
+                    <input type="text" class="form-control" id="Calle" placeholder="Calle" name="Calle" maxlength="35" autocomplete="off" required>
               </div>
               <div class="form-group">
                     <label >No Externo</label>
@@ -66,10 +66,10 @@
               </div>
               <div class="form-group">
                     <label >No Interno</label>
-                    <input type="text" class="form-control" id="NoInterno" placeholder="No Interno" name="NoInterno" maxlength="10" autocomplete="off">
+                    <input type="text" class="form-control" id="NoInterno" placeholder="No Interno" name="NoInterno" maxlength="10" autocomplete="off" >
               </div>
 
-              <label >Ciudad/Delegación</label>
+              <label >Ciudad/Municipio</label>
               <div class="form-group row" id="RespuestaCiudad">
                     
                <div class="col-9" >
@@ -105,9 +105,13 @@
                     <input type="email" class="form-control" id="Email" placeholder="correo@server.com" name="Email" autocomplete="off">
               </div>
               
-
-              <button class="btn btn-success" type="submit"><i class="fa fa-save"></i> Registrar</button>
-
+               <center>    
+                 <button class="btn boton-modal-large" 
+                         type="submit">
+                          <i class="fas fa-save"></i> 
+                          Registrar Cliente
+                 </button>
+                </center>
 
             </div>
  </div>
@@ -125,7 +129,7 @@
   }
       $("#OtraCiudad").click(function(){
           var urls       =  "<?php echo url('Formularios/OtraCiudad')  ?>";
-                              $("#RespuestaModal").css('display','none');
+                             
                              $.ajax({
                                       type: "GET",
                                       url: urls,
@@ -136,8 +140,8 @@
                                       },
                                       success: function(data){
 
-                                       $("#RespuestaModal").css('display','block');
-                                       $("#RespuestaModal").html(data);
+                                    
+                                       $("#RespuestaCiudad").html(data);
                                 }
                           });
       });

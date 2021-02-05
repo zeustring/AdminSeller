@@ -18,15 +18,15 @@
 <label>Tipo de Busqueda:</label>
 <div class="form-group">
 
-  <select class="form-control" id="TipoBusqueda">
-    <option>Cliente Único</option>
-    <option>Nombre</option>
-    <option>Dirección</option>
+  <select class="form-control" id="SelectTipoBusqueda" style="max-width: 400px; background: #505069; color: #efefef">
+    <option value="BusquedaClienteUnico">Cliente Único</option>
+    <option value="BusquedaNombre">Nombre</option>
+    <option value="BusquedaDireccion">Dirección</option>
   </select>
 </div>
  <form method="post" action="{{url('Clientes/Search')}}">
   {{ csrf_field() }}          
- 
+              <div id="RespuestaTipoBusqueda">
               <label >Cliente Único</label>
                 <div class="row form-group">
                    
@@ -44,10 +44,16 @@
                   </div>
                   
                 </div>
-               
+               </div>
               </div>
                <div class="form-group" >
-                <center>     <button class="btn bg-purple" style=" width: 80%;">Buscar Cliente</button></center>
+                <center>    
+                 <button class="btn boton-modal-large" 
+                         type="submit">
+                         <i class="fas fa-search"></i>
+                         Buscar Cliente
+                 </button>
+                </center>
                 <br>
                </div>
   </div>
@@ -55,15 +61,35 @@
 
  <script type="text/javascript">
    $(document).ready(function(){
-    var ele = document.querySelectorAll('.validanumericos')[0];
-  ele.onkeypress = function(e) {
-     if(isNaN(this.value+String.fromCharCode(e.charCode)))
-        return false;
-  }
-  ele.onpaste = function(e){
-     e.preventDefault();
-  }
+      var ele = document.querySelectorAll('.validanumericos')[0];
+        ele.onkeypress = function(e) {
+         if(isNaN(this.value+String.fromCharCode(e.charCode)))
+             return false;
+        }
+        ele.onpaste = function(e){
+            e.preventDefault();
+        }
 
-     
+      $("#SelectTipoBusqueda").change(function(){
+         var busqueda  =  $(this).val();
+         
+
+               var urls       =  "<?php echo url('Formularios/SelectTipoBusqueda')  ?>";
+                             $("#RespuestaTipoBusqueda").css('display','none');
+                             $.ajax({
+                                      type: "GET",
+                                      url: urls+'/'+busqueda,
+                                      dataType: "html",
+                                      
+                                      error: function(){
+                                            alert("error petición actualize o cantacte al programador");
+                                      },
+                                      success: function(data){
+
+                                       $("#RespuestaTipoBusqueda").css('display','block');
+                                       $("#RespuestaTipoBusqueda").html(data);
+                                }
+                          });
+      });
    });
  </script>

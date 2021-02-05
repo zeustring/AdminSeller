@@ -12,7 +12,7 @@
 
               <div class="form-group">
                     <label >Nombre Colonia</label>
-                    <input type="text" class="form-control" id="Colonia" placeholder="Nombre Colonia" name="Colonia">
+                    <input type="text" class="form-control" id="Colonia" placeholder="Nombre Colonia" name="Colonia" autocomplete="off">
               </div>
               <div class="form-group">
                     <label >Ciudad</label>
@@ -35,10 +35,13 @@
                   </select>
               </div>
               <div class="form-group">
-                    <button class="btn btn-success aling-right">
-                     <i class="fa fa-save"></i>
-                     Registrar
-                    </button>
+                <center>    
+                 <button class="btn boton-modal-large" 
+                         type="submit">
+                          <i class="fas fa-save"></i> 
+                          Registrar Colonia
+                 </button>
+                </center>
               </div>
 
             </div>

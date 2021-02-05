@@ -52,6 +52,7 @@ Route::get('Formularios/OtraCiudad','FormulariosController@OtraCiudad');
 Route::get('Formularios/OtrasColonias/{idCiudad}','FormulariosController@OtrasColonias');
 Route::get('Formularios/EditarCliente/{id}','FormulariosController@EditarCliente');
 Route::get('Formularios/SearchCliente','FormulariosController@SearchCliente');
+Route::get('Formularios/SelectTipoBusqueda/{busqueda}','FormulariosController@SelectTipoBusqueda');
 
 Route::get('Empleados','EmpleadosController@index');
 Route::post('Empleados/Registro','EmpleadosController@Registro');

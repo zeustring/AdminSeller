@@ -29,6 +29,17 @@
   .card-title{
     margin-top: 10px;
   }
+   .boton-modal-large{
+    width: 80%;
+    background: #505069;
+    color: #efefef;
+  }
+  .boton-modal-large:hover{
+    text-shadow: 1px 1px 2px #3a3a4e;
+    color: #1f1f31;
+    border:solid 1px #1f1f31;
+    box-shadow: 1px 1px 4px #1f1f31;
+  }
   </style>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -36,7 +47,7 @@
 <div class="wrapper">
   <!-- Navbar -->
 
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand  navbar-dark">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">

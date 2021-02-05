@@ -12,7 +12,7 @@
 
               <div class="form-group">
                     <label >Nombre Ciudad</label>
-                    <input type="text" class="form-control" id="Estado" placeholder="Nombre Estado" name="Nombre">
+                    <input type="text" class="form-control" id="Estado" placeholder="Nombre Estado" name="Nombre" autocomplete="off">
               </div>
               <div class="form-group">
                     <label >Estado</label>
@@ -25,10 +25,13 @@
                   </select>
               </div>
               <div class="form-group">
-                    <button class="btn btn-success aling-right">
-                     <i class="fa fa-save"></i>
-                     Registrar
-                    </button>
+                <center>    
+                 <button class="btn boton-modal-large" 
+                         type="submit">
+                          <i class="fas fa-save"></i> 
+                          Registrar Ciudad
+                 </button>
+                </center>
               </div>
 
             </div>

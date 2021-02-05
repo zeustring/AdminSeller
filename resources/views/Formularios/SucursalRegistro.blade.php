@@ -12,15 +12,15 @@
 
               <div class="form-group">
                     <label >No Sucursal</label>
-                    <input type="num" class="form-control" id="NoSucursal" placeholder="No Sucursal"  name="NoSucursal">
+                    <input type="num" class="form-control" id="NoSucursal" placeholder="No Sucursal"  name="NoSucursal" autocomplete="off">
               </div>
               <div class="form-group">
                     <label >Nombre de Sucursal</label>
-                    <input type="text" class="form-control" id="NombreSucursal" placeholder="Nombre de Sucursal" name="NombreSucursal">
+                    <input type="text" class="form-control" id="NombreSucursal" placeholder="Nombre de Sucursal" name="NombreSucursal" autocomplete="off">
               </div>
               <div class="form-group">
                     <label >Calle</label>
-                    <input type="text" class="form-control" id="Calle" placeholder="Calle" name="Calle">
+                    <input type="text" class="form-control" id="Calle" placeholder="Calle" name="Calle" autocomplete="off">
               </div>
               <div class="form-group">
                     <label >Numero Exterior</label>
@@ -28,7 +28,7 @@
               </div>
               <div class="form-group">
                     <label >Referencias</label>
-                    <input type="text" class="form-control" id="Referencias" placeholder="Referencias" name="Referencias">
+                    <input type="text" class="form-control" id="Referencias" placeholder="Referencias" name="Referencias" autocomplete="off">
               </div>
               <div class="form-group" id="SelectEstado">
                     <label >Estado</label>
@@ -61,7 +61,13 @@
                     </select>
               </div>
 
-              <button class="btn btn-success" type="submit"><i class="fa fa-save"></i> Registrar</button>
+                <center>    
+                 <button class="btn boton-modal-large" 
+                         type="submit">
+                          <i class="fas fa-save"></i> 
+                          Registrar Sucursal
+                 </button>
+                </center>
 
 
             </div>

@@ -112,4 +112,13 @@ class FormulariosController extends Controller
     {
         return view('Formularios.SearchClientes');
     }
+    public function SelectTipoBusqueda($busqueda)
+    {   $sucursal   =     Sucursal::where('id','=',Auth::user()->id_sucursal)->first();
+        $ciudad     =     Ciudad::where('id','=',$sucursal->id_ciudad)->first();
+        $colonia    =     Colonia::where('id_ciudad','=',$ciudad->id)
+                                 ->orderBy('nombre','asc')
+                                 ->get();
+        return view('Formularios.'.$busqueda,['ciudad'   => $ciudad,
+                                              'colonia'  => $colonia]);
+    }
 }
