@@ -40,6 +40,10 @@
     border:solid 1px #1f1f31;
     box-shadow: 1px 1px 4px #1f1f31;
   }
+  .nav-link img{
+    width: 90px;
+    margin-top: -7px;
+  }
   </style>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -54,7 +58,9 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item">
-                <a class="nav-link" href="{{url('dashboard')}}">AdminSeller</a>
+                <a class="nav-link" href="{{url('dashboard')}}">
+                  <img src="{{url('imagen/logo-adminseller.png')}}">
+                </a>
       </li>
 
     </ul>

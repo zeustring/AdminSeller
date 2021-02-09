@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('body')
     <div class="login-box">
-      <div class="login-logo">
-        <a href="#"><b>Admin</b>Seller</a>
-      </div>
+      <center>
+         <img src="{{url('imagen/logo-adminseller-login.png')}}" width="250" style="margin-top: 100px;margin-bottom: 50px;">
+         </center>
       <!-- /.login-logo -->
       <div class="card">
         <div class="card-body login-card-body">
@@ -12,7 +12,7 @@
           <form action="{{url('loginApp')}}" method="post">
 			  
             <div class="input-group mb-3">
-			{{ csrf_field()}}
+			          {{ csrf_field()}}
               <input type="number" class="form-control" placeholder="No Empleado" name="no_empleado" autocomplete="off">
               <div class="input-group-append">
                 <div class="input-group-text">
@@ -44,4 +44,6 @@
         <!-- /.login-card-body -->
       </div>
     </div>
+    <img src="{{url('imagen/powered.png')}}" width="150" style="margin-top: 80px">
+         </center>
 @endsection

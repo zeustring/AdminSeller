@@ -25,7 +25,7 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition register-page">
+<body class="register-page" style="height: 100%">
 @yield('body')
 
 <!-- jQuery -->
