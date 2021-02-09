@@ -60,6 +60,7 @@ Route::post('Empleados/Registro','EmpleadosController@Registro');
 Route::get('MisClientes','MisClientesController@index');
 Route::post('Clientes/Registro','MisClientesController@Registro');
 Route::post('Clientes/Editar','MisClientesController@Editar');
+Route::post('Clientes/Search','MisClientesController@Search');
 Route::post('MisClientes/ConfirmarRegistro/','MisClientesController@ConfirmarRegistro');
 
 Route::get('/clear-cache', function() {

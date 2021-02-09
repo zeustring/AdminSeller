@@ -1,5 +1,5 @@
 
-
+              <input type="hidden" name="TipoBusqueda" value="3" > 
               <label >Ciudad/Delegación</label>
               <div class="form-group row" id="RespuestaCiudad">
                     

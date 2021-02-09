@@ -103,4 +103,68 @@ class MisClientesController extends Controller
     	$cliente->save();
     	return redirect('MisClientes');
     }
+    public function Search(Request $request)
+    {   
+
+       if($request['TipoBusqueda'] == 1)
+       {
+       $SearchCliente    =    DB::table('clientes')
+                                ->where('clientes.cu1','=',$request['cu1'])
+                                ->where('clientes.cu2','=',$request['cu2'])
+                                ->where('clientes.cu3','=',$request['cu3'])
+                                ->where('clientes.cu4','=',$request['cu4'])
+                                ->join('colonias','colonias.id','=','clientes.id_colonia')
+                                ->join('ciudades','ciudades.id','=','clientes.id_ciudad')
+                                ->join('estatus','estatus.id','=','clientes.id_estatus')
+                                ->select('clientes.*', 
+                                         'colonias.nombre as colonia',
+                                         'ciudades.nombre as ciudad',
+                                         'estatus.nombre as estatus')
+                                ->get(); 
+       }else if($request['TipoBusqueda'] == 2)
+       {
+       $SearchCliente  =  DB::table('clientes')
+                           ->where('clientes.nombre','like','%'.$request['Nombre'].'%')
+                           ->where('clientes.apellido_pa','like','%'.$request['ApellidoPa'].'%')
+                           ->where('clientes.apellido_ma','like','%'.$request['ApellidoMa'].'%')
+                           ->join('colonias','colonias.id','=','clientes.id_colonia')
+                           ->join('ciudades','ciudades.id','=','clientes.id_ciudad')
+                           ->join('estatus','estatus.id','=','clientes.id_estatus')
+                           ->select('clientes.*', 
+                                    'colonias.nombre as colonia',
+                                    'ciudades.nombre as ciudad',
+                                    'estatus.nombre as estatus')
+                          ->get(); 
+       }else if($request['Calle'] == "")
+       {
+       $SearchCliente    =    DB::table('clientes')
+                                ->where('clientes.id_colonia','=',$request['IdColonia'])
+                                ->where('clientes.id_ciudad','=',$request['IdCiudad'])
+                                ->join('colonias','colonias.id','=','clientes.id_colonia')
+                                ->join('ciudades','ciudades.id','=','clientes.id_ciudad')
+                                ->join('estatus','estatus.id','=','clientes.id_estatus')
+                                ->select('clientes.*', 
+                                         'colonias.nombre as colonia',
+                                         'ciudades.nombre as ciudad',
+                                         'estatus.nombre as estatus')
+                                ->get();   
+       }else if($request['TipoBusqueda'] == 3)
+       {
+       $SearchCliente    =    DB::table('clientes')
+                                ->where('clientes.id_colonia','=',$request['IdColonia'])
+                                ->where('clientes.id_ciudad','=',$request['IdCiudad'])
+                                ->Orwhere('clientes.calle','like','%'.$request['Calle'].'%')
+                                ->join('colonias','colonias.id','=','clientes.id_colonia')
+                                ->join('ciudades','ciudades.id','=','clientes.id_ciudad')
+                                ->join('estatus','estatus.id','=','clientes.id_estatus')
+                                ->select('clientes.*', 
+                                         'colonias.nombre as colonia',
+                                         'ciudades.nombre as ciudad',
+                                         'estatus.nombre as estatus')
+                                ->get(); 
+       }
+
+
+     return view('MisClientes.Search',['SearchCliente' => $SearchCliente]);
+    }
 }

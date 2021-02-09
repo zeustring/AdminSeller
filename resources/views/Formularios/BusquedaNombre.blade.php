@@ -1,4 +1,4 @@
-
+              <input type="hidden" name="TipoBusqueda" value="2" > 
               <div class="form-group">
                     <label >Nombre</label>
                     <input type="text" class="form-control" id="Nombre" placeholder="Nombre" name="Nombre" maxlength="20" autocomplete="off">
