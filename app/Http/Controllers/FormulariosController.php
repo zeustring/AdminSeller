@@ -121,4 +121,15 @@ class FormulariosController extends Controller
         return view('Formularios.'.$busqueda,['ciudad'   => $ciudad,
                                               'colonia'  => $colonia]);
     }
+    public function CartaCliente($id)
+    {   $cliente        =    DB::table('clientes')
+                               ->where('clientes.id','=',$id)
+                               ->join('colonias','colonias.id','=','clientes.id_colonia')
+                               ->join('ciudades','ciudades.id','=','clientes.id_ciudad')
+                               ->select('clientes.*',
+                                        'colonias.nombre as colonia',
+                                        'ciudades.nombre as ciudad')
+                               ->first();
+        return view('Formularios.CartaForm',['cliente' => $cliente]);
+    }
 }
