@@ -7,7 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" type="image/png" sizes="196x196" href="{{url('imagenes/favicon-master.png')}}"/>
+    <link rel="shortcut icon" type="image/png" sizes="196x196" href="{{url('imagen/favicon-master.png')}}"/>
+    <link rel="icon" type="image/vnd.microsoft.icon" href="{{url('imagen/favicon.ico')}}" sizes="16x16 32x32">
 
   <title>AdminSeller</title>
   <!-- Tell the browser to be responsive to screen width -->
