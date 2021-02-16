@@ -11,7 +11,7 @@
     position: relative;
   }
 </style>
-  <form method="post" action="{{url('Clientes/GuardarCarta')}}">
+  <form method="post" action="{{url('Cartas/Registro')}}">
   {{ csrf_field() }}          
  <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                  
@@ -25,7 +25,7 @@
                 </div>
                 
                  
-              <input type="hidden" name="ID" value="{{$cliente->id}}">
+              <input type="hidden" name="IdCliente" value="{{$cliente->id}}">
               <div class="form-group">
                     <label >Nombre: </label><br>
                     {{$cliente->nombre}} {{$cliente->apellido_pa}} {{$cliente->apellido_ma}}
@@ -65,7 +65,7 @@
                 <big><b>Capacidad Disponible</b></big>
                 <br>
                 <input type="text"
-                       name="Capacidad"
+                       name="Monto"
                        autocomplete="off"
                        required
                        class="form-control"

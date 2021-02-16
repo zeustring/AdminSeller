@@ -55,6 +55,9 @@ Route::get('Formularios/SearchCliente','FormulariosController@SearchCliente');
 Route::get('Formularios/CartaCliente/{id}','FormulariosController@CartaCliente');
 Route::get('Formularios/SelectTipoBusqueda/{busqueda}','FormulariosController@SelectTipoBusqueda');
 
+Route::get('Cartas','CartasController@index');
+Route::post('Cartas/Registro','CartasController@Registro');
+
 Route::get('Empleados','EmpleadosController@index');
 Route::post('Empleados/Registro','EmpleadosController@Registro');
 

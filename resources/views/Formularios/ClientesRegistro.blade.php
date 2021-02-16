@@ -4,21 +4,7 @@
                 <span aria-hidden="true">×</span>
               </button>
 </div>
-<style type="text/css">
-  .cu{
-    margin-right: 15px;
-    margin-left: 7px;
-  }
-  #RespuestaCliente{
-    background: #f9bad1;
-    font-size: 13px;
-    padding: 10px;
-    color:#6d0000;
-    border: solid 1px black;
-    border-radius: 4px;
-    display: none;
-  }
-</style>
+
   <form method="post" action="{{url('Clientes/Registro')}}">
   {{ csrf_field() }}          
  <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">

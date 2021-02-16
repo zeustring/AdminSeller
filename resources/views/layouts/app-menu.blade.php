@@ -24,6 +24,19 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <style type="text/css">
+    .cu{
+    margin-right: 15px;
+    margin-left: 7px;
+  }
+  #RespuestaCliente{
+    background: #f9bad1;
+    font-size: 13px;
+    padding: 10px;
+    color:#6d0000;
+    border: solid 1px black;
+    border-radius: 4px;
+    display: none;
+  }
   .BotonModal{
     float: right;
   }
@@ -130,6 +143,15 @@
             </a>
            </li>
           <li class="nav-item has-treeview">
+            <a href="{{url('Cartas')}}" class="nav-link ">
+              <i class="nav-icon fas fa-envelope-open-text"></i>
+              <p>
+                Cartas
+               
+              </p>
+            </a>
+           </li>
+          <li class="nav-item has-treeview">
             <a href="{{url('Empleados')}}" class="nav-link ">
               <i class="nav-icon fas fa-users"></i>
               <p>
@@ -226,6 +248,7 @@
         </div>
         <!-- /.modal-dialog -->
 </div>
+
 <script type="text/javascript">
               $(document).ready(function(){
 
