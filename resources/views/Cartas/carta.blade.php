@@ -202,7 +202,7 @@ margin-bottom:60px;
 				<b>Recuerda solo en tu Sucursal {{$carta->sucursal}}</b>
 		</div>
 		<div class="elektra-marca-agua">
-			<center><img src="{{url($tipo_carta->img_fondo)}} "></center>
+			<center><img src="{{url($tipo_carta->img_fondo)}}"></center>
 		</div>
 		<br><br>
 		<div class="cupon-margen">
@@ -242,7 +242,7 @@ margin-bottom:60px;
 		</div>
 		<br>
 		<div class="imagenes-carta">
-		<center>	<img src="{{{url($tipo_carta->img_inf_1)}} " width="220"></center>
+		<center>	<img src="{{url($tipo_carta->img_inf_1)}}" width="220"></center>
 			
 
 		</div>
