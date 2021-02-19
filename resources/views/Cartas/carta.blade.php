@@ -177,7 +177,7 @@ margin-bottom:60px;
 			Folio: <?php echo $carta->folio ; ?> <br>
 			CU   : <?php echo $carta->cu1."-".$carta->cu2."-".$carta->cu3."-".$carta->cu4 ; ?>
 		</div>
-		<div class="banco"><img src="{{{url($tipo_carta->img_izq_sup)}}" width="260"></div>
+		<div class="banco"><img src="{{url($tipo_carta->img_izq_sup)}}" width="260"></div>
 		<div class="felicidades">¡¡Felicidades!!</div>
 		<div class="nombre">Nombre:
 			    <b class="text-resaltado">
