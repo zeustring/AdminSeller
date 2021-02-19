@@ -47,7 +47,7 @@
               </div>
               <div class="form-group">
                 <label>Tipo de Carta: </label><br>
-                    Elektra /Reecompra /San Valentin
+                    Elektra /San Valentin
 
                   <button class="btn btn-warning"
                           type="button" 

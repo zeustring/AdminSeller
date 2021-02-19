@@ -4,6 +4,13 @@
     <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Mis Cartas</h3>
+                <button class="btn btn-success BotonModal" 
+                        data-toggle="modal" 
+                        data-target="#modal-lg"
+                        id="ReporteCartas"> 
+                        <i class="fas fa-list"></i>
+                        Reporte
+                </button>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -14,11 +21,13 @@
          
          <div class="row">
           <div class="col-sm-12 card-body table-responsive p-0">
+            <form id="cartas" action="{{url('Cartas/GenerarCartas')}}" method="post">
+              {{ csrf_field() }} 
             <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info" style="max-width:1150px; min-width: 1150px; font-size: 14px;">
                   <thead>
                   <tr role="row">
                     <th width="10%">
-                     <button class="btn bg-purple btn-xs">
+                     <button class="btn bg-purple btn-xs GenerarCartas" type="submit">
                        Generar <i class="fa fa-save"></i>
                      </button>
                     </th>
@@ -46,12 +55,12 @@
                     </th>
                   </thead>
                   <tbody>
-
+                 
                  @foreach($cartas as $row) 
                   <tr role="row" class="odd" >
                     <td>
                       <center>
-                        <input type="checkbox" name="pint" >
+                        <input type="checkbox" value="{{$row->idCarta}}" name="carta[]">
                       </center>
                     </td>
                     <td>{{$row->cu1}}-{{$row->cu2}}-{{$row->cu3}}-{{$row->cu4}}</td>
@@ -85,12 +94,14 @@
                         <i class="fa fa-trash"></i>
                       </button>
                       </center>  
-                  @endforeach   
+                  @endforeach  
+                  
                     </td>
                   </tr>
                 </tbody>
                   
                 </table>
+                </form> 
               </div></div>
               </div>
               
@@ -99,7 +110,7 @@
 
     
 <script type="text/javascript">
-              $(document).ready(function(){
+ $(document).ready(function(){
 
 
                   $(".EditarCarta").click(function(){
@@ -119,7 +130,14 @@
                                        $("#RespuestaModal").html(data);
                                 }
                           });
+                    });
+
+                  $(".GenerarCartas").click(function(){
+                      sleepp(5);
+
                   });
+                   
+});
 
 
 </script>

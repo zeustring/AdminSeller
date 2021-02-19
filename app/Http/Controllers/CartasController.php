@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 use App\Carta;
 use App\Sucursal;
 use App\Empleado;
@@ -47,6 +48,16 @@ class CartasController extends Controller
    		$carta->save();
 
    		return redirect('Cartas');
+
+   }
+
+   public function GenerarCartas(Request $request)
+   {
+   	 
+   	 $pdf = PDF::loadView('Cartas.carta',['carta' => $request['carta']]);
+   	 $pdf->setPaper('lettle');
+     return $pdf->download('invoice.pdf');
+     
 
    }
 }

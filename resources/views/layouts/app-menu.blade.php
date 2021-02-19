@@ -151,6 +151,7 @@
               </p>
             </a>
            </li>
+          @if(Auth::user()->id_jerarquia <= 2)
           <li class="nav-item has-treeview">
             <a href="{{url('Empleados')}}" class="nav-link ">
               <i class="nav-icon fas fa-users"></i>
@@ -198,6 +199,7 @@
               </li>
             </ul>
           </li>
+          @endif
            <li class="nav-item has-treeview">
             <a href="{{url('updateApp/sources')}}" class="nav-link ">
               <i class="nav-icon fas fa-tools"></i>

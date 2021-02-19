@@ -22,6 +22,7 @@
          <div class="row">
           <div class="col-sm-12 card-body table-responsive p-0">
             <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info" style="max-width:1100px; min-width: 1000px; font-size: 14px;">
+              
                   <thead>
                   <tr role="row">
                     <th width="17%">
