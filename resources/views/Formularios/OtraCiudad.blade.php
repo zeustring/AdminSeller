@@ -1,5 +1,6 @@
                <div class="col-9" >
                     <select class="form-control" name="IdCiudad" id="OtrasColonias">
+                      <option value="0">------</option>
                       @foreach($ciudades as $row)
                       <option value="{{$row->id}}">{{$row->nombre}}</option>
                       @endforeach

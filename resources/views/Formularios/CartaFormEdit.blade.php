@@ -20,34 +20,22 @@
                 <div class="form-group">
                   <center>
                     <b style="font-size: 20px;">
-                      Cliente Unico <br>{{$cliente->cu1}}-{{$cliente->cu2}}-{{$cliente->cu3}}-{{$cliente->cu4}}</b>
+                     
+                      Cliente Unico {{$carta->monto}}
+                     <br></b>
                   </center> 
                 </div>
                 
                  
-              <input type="hidden" name="IdCliente" value="{{$cliente->id}}">
+              <input type="hidden" name="IdCliente" value="">
               <div class="form-group">
                     <label >Nombre: </label><br>
-                    {{$cliente->nombre}} {{$cliente->apellido_pa}} {{$cliente->apellido_ma}}
+                    
               </div>
-              <div class="form-group">
-                    <label >Direccion: </label> <br>
-                    {{$cliente->calle}} 
-                    Int #{{$cliente->no_ext}}
-                    @if($cliente->no_int != "")
-                      Ext {{$cliente->no_int}}
-                    @endif 
-                    Col. {{$cliente->colonia}} 
-                    <b>{{$cliente->ciudad}}</b>
-
-              </div>
-              <div class="form-group">
-                <label>Ultima Gestión: </label><br>
-                    Sin Gestion
-              </div>
+              
               <div class="form-group">
                 <label>Tipo de Carta: </label><br>
-                    {{$TipoCarta->canal}} /{{$TipoCarta->cartaNombre}}
+                   
 
                   <button class="btn btn-warning"
                           type="button" 
@@ -66,6 +54,7 @@
                 <br>
                 <input type="text"
                        name="Monto"
+                       value="" 
                        autocomplete="off"
                        required
                        class="form-control"

@@ -11,6 +11,8 @@ use App\Sucursal;
 use App\Cliente;
 use App\Jerarquia;
 use App\Canal;
+use App\Carta;
+use App\CartaPredefinida;
 use Auth;
 use DB;
 class FormulariosController extends Controller
@@ -130,6 +132,22 @@ class FormulariosController extends Controller
                                         'colonias.nombre as colonia',
                                         'ciudades.nombre as ciudad')
                                ->first();
-        return view('Formularios.CartaForm',['cliente' => $cliente]);
+        $TipoCarta      =    DB::table('carta_predefinida')
+                               ->where('carta_predefinida.id_empleado','=',Auth::user()->id)
+                               ->join('tipo_carta','tipo_carta.id','=','carta_predefinida.id_tipo_carta')
+                               ->join('canales','canales.id','=','tipo_carta.id_canal')
+                               ->select('tipo_carta.nombre as cartaNombre',
+                                        'canales.nombre as canal')
+                               ->first();   
+
+        return view('Formularios.CartaForm',['cliente'   => $cliente,
+                                             'TipoCarta' => $TipoCarta]);
+    }
+    public function EditarCarta($id)
+    {  
+        $carta     =      Carta::find($id);
+
+
+        return view('Formularios.CartaFormEdit',['carta'   => $carta]);
     }
 }

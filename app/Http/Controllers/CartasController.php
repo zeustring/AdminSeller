@@ -57,7 +57,11 @@ class CartasController extends Controller
    	 $pdf = PDF::loadView('Cartas.carta',['carta' => $request['carta']]);
    	 $pdf->setPaper('lettle');
      return $pdf->download('invoice.pdf');
-     
-
+   }
+   public function Eliminar($id)
+   {
+      $carta         =    Carta::find($id);
+      $carta->delete();
+      return redirect('Cartas');
    }
 }

@@ -24,4 +24,11 @@ class Cliente extends Model
 							  'id_estado',
 							  'id_estatus',
 							  'id_empleado'];
+
+	public function cartas()
+	{
+		return $this->hasMany('App\Carta');
+	}
+
+
 }

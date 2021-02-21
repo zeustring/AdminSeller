@@ -190,7 +190,8 @@ margin-bottom:60px;
 		<div class="nombre">Domicilio: 
 				<b class="text-resaltado">
 						<?php echo $carta->calle ; ?>
-						#<?php echo $carta->no_int ; ?>
+						#<?php echo $carta->no_ext ; ?> 
+						{{$carta->no_int}}
 						<?php echo $carta->colonia; ?>
 						<?php echo $carta->ciudad ; ?>
 						
@@ -228,14 +229,7 @@ margin-bottom:60px;
 			</b>
 		</div>
 		<br>
-<!--
-		<div class="imagenes-qr">
-			<img src="imagenes/img-cartas/qr1.png" width="80">
-			<img src="imagenes/img-cartas/qr2.png"  width="80">
-			<img src="imagenes/img-cartas/qr3.png"  width="80">
-			<center><b>ESCANEA ESTE POR FIN ES JUNIO</b></center>
-		</div>
--->
+
 		<br>
 		<div class="text-4">
 			<b>¡¡GRACIAS POR TU PREFERENCIA!!</b>

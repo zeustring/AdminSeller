@@ -87,12 +87,13 @@
                               
                               data-toggle="modal" 
                               data-target="#modal-lg"
-                              id="{{$row->id}}">
+                              id="{{$row->idCarta}}"
+                              type="button">
                         <i class="fa fa-edit"></i>
                       </button>
-                      <button class="btn btn-danger btn-xs" >
+                      <a  href="{{url('Cartas/Eliminar/'.$row->idCarta)}}" class="btn btn-danger btn-xs" >
                         <i class="fa fa-trash"></i>
-                      </button>
+                      </a>
                       </center>  
                   @endforeach  
                   
@@ -132,10 +133,6 @@
                           });
                     });
 
-                  $(".GenerarCartas").click(function(){
-                      sleepp(5);
-
-                  });
                    
 });
 
