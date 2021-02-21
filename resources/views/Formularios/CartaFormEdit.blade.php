@@ -21,15 +21,25 @@
                   <center>
                     <b style="font-size: 20px;">
                      
-                      Cliente Unico {{$carta->monto}}
-                     <br></b>
+                      Cliente Unico 
+                     <br>
+                     <b>
+                        {{$carta->cliente->cu1}}-
+                        {{$carta->cliente->cu2}}-
+                        {{$carta->cliente->cu3}}-
+                        {{$carta->cliente->cu4}}
+                     </b>
                   </center> 
                 </div>
                 
                  
               <input type="hidden" name="IdCliente" value="">
               <div class="form-group">
-                    <label >Nombre: </label><br>
+                    <label >Nombre:</label>
+                            {{$carta->cliente->nombre}} 
+                            {{$carta->cliente->apellido_pa}}
+                            {{$carta->cliente->apellido_ma}}
+                            <br>
                     
               </div>
               
