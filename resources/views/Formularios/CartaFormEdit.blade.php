@@ -21,7 +21,8 @@
                   <center>
                     <b style="font-size: 20px;">
                      
-                      Cliente Unico 
+                      Cliente Unico
+                      </b> 
                      <br>
                      <b>
                         {{$carta->cliente->cu1}}-
@@ -44,7 +45,7 @@
               </div>
               
               <div class="form-group">
-                <label>Tipo de Carta: </label><br>
+                <label>Tipo de Carta: </label>
                    
 
                   <button class="btn btn-warning"
@@ -64,7 +65,7 @@
                 <br>
                 <input type="text"
                        name="Monto"
-                       value="" 
+                       value="{{$carta->monto}}" 
                        autocomplete="off"
                        required
                        class="form-control"
