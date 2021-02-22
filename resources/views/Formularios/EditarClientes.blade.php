@@ -57,8 +57,8 @@
               <div class="form-group row" id="RespuestaCiudad">
                     
                <div class="col-9" >
-                    <input type="text" class="form-control" value="{{$cliente->ciudad_nombre}}" disabled> 
-                    <input type="hidden" class="form-control" name="IdCiudad" value="{{$cliente->ciudad_id}}">
+                    <input type="text" class="form-control" value="{{$cliente->ciudad->nombre}}" disabled> 
+                    <input type="hidden" class="form-control" name="IdCiudad" value="{{$cliente->ciudad->id}}">
                 </div>
                 <div > 
                   <button class="btn btn-warning"
@@ -74,7 +74,7 @@
                     
                <div class="col-9" >
                     <select class="form-control" name="IdColonia">
-                      <option value="{{$cliente->colonias_id}}">{{$cliente->colonias_nombre}}</option>
+                      <option value="{{$cliente->colonia->id}}">{{$cliente->colonia->nombre}}</option>
                       @foreach($colonias as $row)
                         <option value="{{$row->id}}">{{$row->nombre}}</option>
                       @endforeach

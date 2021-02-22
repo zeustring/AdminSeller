@@ -16,16 +16,7 @@
               <div class="card-body">
          
          	
-             
-              
-             	<div id="example1_filter card-body table-responsive p-0" >
-               
 
-             
-                <label >
-                 <input type="search" class="form-control" placeholder="" aria-controls="Buscar Tienda">
-             		</label>
-              
              	</div>
              
          
@@ -34,7 +25,7 @@
          		<table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info" style="max-width:1100px; min-width: 1000px;">
                   <thead>
                   <tr role="row">
-                  	<th >
+                  	<th > 
                   	 #
                   	</th>
                   	<th >
@@ -57,13 +48,19 @@
                     
                     <td>{{$row->no_empleado}}</td>
                     <td>{{$row->nombre}} {{$row->apellido_pa}} {{$row->apellido_ma}}</td>
-                    <td>{{$row->no_sucursal}} {{$row->sucursal}}</td>
+                    <td>{{$row->sucursal->no_sucursal}} {{$row->sucursal->nombre}}</td>
                     <td>Sin membrecia</td> 
                     <td>
                       <center>
-                        <button class="btn btn-success btn-xs">Editar</button>
-                        <button class="btn btn-info btn-xs">Detalles</button>
-                        <button class="btn bg-purple btn-xs">Membrecia</button>
+                        <button class="btn btn-success btn-xs">
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-info btn-xs">
+                          <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn bg-purple btn-xs">
+                          <i class="fas fa-money-bill-alt"></i>
+                        </button>
                       </center>
                   @endforeach   
                     </td>

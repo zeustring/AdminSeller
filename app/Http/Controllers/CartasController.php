@@ -11,7 +11,6 @@ use App\Cliente;
 use App\Colonia;
 use App\Ciudad;
 use App\Canal;
-use DB;
 use Auth;
 
 

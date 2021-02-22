@@ -8,3 +8,4 @@ class Estatus extends Model
 {
     protected  $table   =  "estatus";
     protected  $filable =  ['nombre'];
+}

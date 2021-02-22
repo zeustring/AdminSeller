@@ -51,12 +51,12 @@
                     <td>  {{$row->calle}} 
                          #{{$row->no_ext}}
                           {{$row->no_int}}.
-                          Col. {{$row->colonia}},
-                          {{$row->ciudad}}
+                          Col. {{$row->colonia->nombre}},
+                          {{$row->ciudad->nombre}}
                     </td>
                     <td>
                       <center>
-                        {{$row->estatus}}
+                        {{$row->estatus->nombre}}
                       </center> 
                     </td>
 
@@ -93,14 +93,7 @@
               <!-- /.card-body -->
   </div>
 
-<div class="modal fade show" id="modal-lg"  aria-modal="true" role="dialog">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content" id="RespuestaModal">
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-</div>      
+     
 <script type="text/javascript">
               $(document).ready(function(){
 

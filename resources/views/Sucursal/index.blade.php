@@ -3,28 +3,17 @@
     <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Listado de Sucursales</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-         
-         	
-             
-              
-             	<div id="example1_filter card-body table-responsive p-0" >
-               
-             		<button class="btn btn-success" 
+                  <button class="btn btn-success BotonModal" 
                         data-toggle="modal" 
                         data-target="#modal-lg"
                         id="SucursalRegistro"> 
                         <i class="fas fa-store-alt"></i>
                         Nuevo
                 </button>
-             
-                <label >
-                 <input type="search" class="form-control" placeholder="" aria-controls="Buscar Tienda">
-             		</label>
+              </div>
               
-             	</div>
+              <div class="card-body">
+         
              
          
          <div class="row">
@@ -42,9 +31,6 @@
                   	 Dirección
                   	</th>
                   	<th >
-                  	 Ciudad
-                  	</th>
-                  	<th >
                   	 Opiones
                   	</th>
                   </thead>
@@ -55,12 +41,18 @@
                     
                     <td>{{$row->no_sucursal}}</td>
                     <td>{{$row->nombre}}</td>
-                    <td>{{$row->calle .' #'. $row->no_exterior}}</td>
-                    <td>{{$row->id_ciudad}}</td>
                     <td>
-                      <button class="btn btn-success btn-xs">Editar</button>
-                      <button class="btn btn-info btn-xs">Empleados</button>
-                      <button class="btn bg-purple btn-xs">Clientes</button>
+                        {{$row->calle .' #'. $row->no_exterior}}
+                        Col. {{$row->colonia->nombre}}
+                        {{$row->ciudad->nombre}}
+                    </td>
+                    <td>
+                      <button class="btn btn-success btn-xs">
+                        <i class="fas fa-edit"></i>
+                      </button>
+                      <button class="btn btn-info btn-xs">
+                        <i class="fas fa-users"></i>
+                      </button>
                         
                   @endforeach   
                     </td>
@@ -74,14 +66,7 @@
               <!-- /.card-body -->
   </div>
 
-<div class="modal fade show" id="modal-lg"  aria-modal="true" role="dialog">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content" id="RespuestaModal">
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-</div>      
+     
 <script type="text/javascript">
               $(document).ready(function(){
 

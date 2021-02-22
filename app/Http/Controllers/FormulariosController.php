@@ -90,16 +90,7 @@ class FormulariosController extends Controller
     }
     public function EditarCliente($id)
     {
-        $cliente          =   DB::table('clientes')
-                                ->where('clientes.id','=',$id)
-                                ->join('ciudades','ciudades.id','=','clientes.id_ciudad')
-                                ->join('colonias','colonias.id','=','clientes.id_colonia')
-                                ->select('clientes.*',
-                                         'ciudades.nombre as ciudad_nombre',
-                                         'ciudades.id as ciudad_id',
-                                         'colonias.nombre as colonias_nombre',
-                                         'colonias.id as colonias_id')
-                                ->first();
+        $cliente          =   Cliente::find($id);
         $sucursal    =     Sucursal::where('id','=',Auth::user()->id_sucursal)->first();
         $ciudad      =     Ciudad::where('id','=',$sucursal->id_ciudad)->first();
         $colonias    =     Colonia::where('id_ciudad','=',$ciudad->id)
