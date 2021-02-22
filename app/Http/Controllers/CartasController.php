@@ -18,20 +18,13 @@ use Auth;
 class CartasController extends Controller
 {
 	public function index()
-	{	$cartas         =           DB::table('cartas')
-									  ->where('cartas.id_empleado','=',Auth::user()->id)
-									  ->where('cartas.id_estatus','=','4')
-									  ->join('clientes','clientes.id','=','cartas.id_cliente')
-									  ->join('colonias','colonias.id','=','clientes.id_colonia')
-									  ->join('ciudades','ciudades.id','=','clientes.id_ciudad')
-									  ->select('cartas.id as idCarta',
-									  		   'cartas.monto as monto',
-									  		   'cartas.id_tipo_carta as tipoCarta',
-											   'clientes.*',
-											   'colonias.nombre as colonia',
-											   'ciudades.nombre as ciudad')
-									  ->orderby('cartas.id','desc')
-									  ->get();
+	{	
+
+     $cartas          =    Carta::where('id_empleado',Auth::user()->id)
+                                ->where('id_estatus','=','4')
+                                ->orderby('id','desc')
+                                ->get();
+
 		return view('Cartas.index',['cartas' => $cartas]);
 	}
 

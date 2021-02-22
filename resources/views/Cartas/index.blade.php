@@ -60,15 +60,21 @@
                   <tr role="row" class="odd" >
                     <td>
                       <center>
-                        <input type="checkbox" value="{{$row->idCarta}}" name="carta[]">
+                        <input type="checkbox" value="{{$row->id}}" name="carta[]">
                       </center>
                     </td>
-                    <td>{{$row->cu1}}-{{$row->cu2}}-{{$row->cu3}}-{{$row->cu4}}</td>
-                    <td>{{$row->nombre}} {{$row->apellido_pa}} {{$row->apellido_ma}}</td>
-                    <td>  {{$row->calle}} 
-                         #{{$row->no_ext}}
-                          {{$row->no_int}}.
-                          Col. {{$row->colonia}}
+                    <td>{{$row->cliente->cu1}}-
+                        {{$row->cliente->cu2}}-
+                        {{$row->cliente->cu3}}-
+                        {{$row->cliente->cu4}}</td>
+                    <td>{{$row->cliente->nombre}} 
+                        {{$row->cliente->apellido_pa}} 
+                        {{$row->cliente->apellido_ma}}</td>
+                    <td>  {{$row->cliente->calle}} 
+                         #{{$row->cliente->no_ext}}
+                          {{$row->cliente->no_int}}.
+                          Col. {{$row->cliente->colonia->nombre}}
+                               {{$row->cliente->ciudad->nombre}}
                           
                     </td>
                     <td>
@@ -87,11 +93,11 @@
                               
                               data-toggle="modal" 
                               data-target="#modal-lg"
-                              id="{{$row->idCarta}}"
+                              id="{{$row->id}}"
                               type="button">
                         <i class="fa fa-edit"></i>
                       </button>
-                      <a  href="{{url('Cartas/Eliminar/'.$row->idCarta)}}" class="btn btn-danger btn-xs" >
+                      <a  href="{{url('Cartas/Eliminar/'.$row->id)}}" class="btn btn-danger btn-xs" >
                         <i class="fa fa-trash"></i>
                       </a>
                       </center>  

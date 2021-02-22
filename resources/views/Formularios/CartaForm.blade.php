@@ -33,12 +33,12 @@
               <div class="form-group">
                     <label >Direccion: </label> <br>
                     {{$cliente->calle}} 
-                    Int #{{$cliente->no_ext}}
+                    #{{$cliente->no_ext}}
                     @if($cliente->no_int != "")
-                      Ext {{$cliente->no_int}}
+                      Int {{$cliente->no_int}}
                     @endif 
-                    Col. {{$cliente->colonia}} 
-                    <b>{{$cliente->ciudad}}</b>
+                    Col. {{$cliente->colonia->nombre}} 
+                    <label>{{$cliente->ciudad->nombre}}</label>
 
               </div>
               <div class="form-group">
@@ -47,7 +47,7 @@
               </div>
               <div class="form-group">
                 <label>Tipo de Carta: </label><br>
-                    {{$TipoCarta->canal}} /{{$TipoCarta->cartaNombre}}
+                     {{$CartaPred->tipoCarta->canal->nombre}} / {{$CartaPred->tipoCarta->nombre}}
 
                   <button class="btn btn-warning"
                           type="button" 

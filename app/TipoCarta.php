@@ -18,5 +18,13 @@ class TipoCarta extends Model
 						   'id_empleado',
 						   'id_canal'
 						   ];
+	public function canal()
+	{
+		return $this->belongsTo('App\Canal','id_canal');
+	}
+	public function empleado()
+	{
+		return $this->belongsTo('App\Empleado','id_empleado');
+	}
 						
 }

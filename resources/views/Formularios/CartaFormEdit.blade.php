@@ -22,9 +22,9 @@
                     <b style="font-size: 20px;">
                      
                       Cliente Unico
-                      </b> 
+                      
                      <br>
-                     <b>
+                     
                         {{$carta->cliente->cu1}}-
                         {{$carta->cliente->cu2}}-
                         {{$carta->cliente->cu3}}-
@@ -36,17 +36,17 @@
                  
               <input type="hidden" name="IdCliente" value="">
               <div class="form-group">
-                    <label >Nombre:</label>
+                    <label >Nombre:</label><br>
                             {{$carta->cliente->nombre}} 
                             {{$carta->cliente->apellido_pa}}
                             {{$carta->cliente->apellido_ma}}
-                            <br>
+                            
                     
               </div>
               
               <div class="form-group">
-                <label>Tipo de Carta: </label>
-                   
+                <label>Tipo de Carta:</label><br>
+                   {{$carta->canal->nombre}} / {{$carta->tipoCarta->nombre}} 
 
                   <button class="btn btn-warning"
                           type="button" 

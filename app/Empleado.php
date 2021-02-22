@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Empleado extends Authenticatable
 {
     use Notifiable;
-    public $timestamps = false;
+    public $timestamps    =  false;
     protected $table      =  'empleados';
     protected $fillable   = ['no_empleado',
                              'nombre',
@@ -25,7 +25,22 @@ class Empleado extends Authenticatable
 
    
 
-
+    public function sucursal()
+    {
+        return $this->belongsTo('App\Sucursal','id_sucursal');
+    }
+    public function estatus()
+    {
+        return $this->belongsTo('App\Estatus','id_estatus');
+    }
+    public function jerarquia()
+    {
+        return $this->belongsTo('App\Jerarquia','id_jerarquia');
+    }
+    public function canal()
+    {
+        return $this->belongsTo('App\Canal','id_canal');
+    }
     protected $hidden = [
         'password', 'remember_token',
     ];

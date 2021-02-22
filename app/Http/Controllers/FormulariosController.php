@@ -124,30 +124,15 @@ class FormulariosController extends Controller
                                               'colonia'  => $colonia]);
     }
     public function CartaCliente($id)
-    {   $cliente        =    DB::table('clientes')
-                               ->where('clientes.id','=',$id)
-                               ->join('colonias','colonias.id','=','clientes.id_colonia')
-                               ->join('ciudades','ciudades.id','=','clientes.id_ciudad')
-                               ->select('clientes.*',
-                                        'colonias.nombre as colonia',
-                                        'ciudades.nombre as ciudad')
-                               ->first();
-        $TipoCarta      =    DB::table('carta_predefinida')
-                               ->where('carta_predefinida.id_empleado','=',Auth::user()->id)
-                               ->join('tipo_carta','tipo_carta.id','=','carta_predefinida.id_tipo_carta')
-                               ->join('canales','canales.id','=','tipo_carta.id_canal')
-                               ->select('tipo_carta.nombre as cartaNombre',
-                                        'canales.nombre as canal')
-                               ->first();   
+    {   $cliente        =    Cliente::find($id);
+        $CartaPred      =    CartaPredefinida::where('id_empleado','=',Auth::user()->id)->first();   
 
         return view('Formularios.CartaForm',['cliente'   => $cliente,
-                                             'TipoCarta' => $TipoCarta]);
+                                             'CartaPred' => $CartaPred]);
     }
     public function EditarCarta($id)
     {  
         $carta     =      Carta::find($id);
-
-
         return view('Formularios.CartaFormEdit',['carta'   => $carta]);
     }
 }

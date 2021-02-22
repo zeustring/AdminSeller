@@ -25,9 +25,25 @@ class Cliente extends Model
 							  'id_estatus',
 							  'id_empleado'];
 
-	public function cartas()
+	public function ciudad()
 	{
-		return $this->hasMany('App\Carta');
+		return $this->belongsTo('App\Ciudad','id_ciudad');
+	}
+	public function colonia()
+	{
+		return $this->belongsTo('App\Colonia','id_colonia');
+	}
+	public function estado()
+	{
+		return $this->belongsTo('App\Estado','id_estado');
+	}
+	public function estatus()
+	{
+		return $this->belongsTo('App\Estatus','id_estatus');
+	}
+	public function empleado()
+	{
+		return $this->belongsTo('App\Empleado','id_empleado');
 	}
 
 
