@@ -46,5 +46,10 @@ class Cliente extends Model
 		return $this->belongsTo('App\Empleado','id_empleado');
 	}
 
+	public function cartas()
+	{
+		return $this->hasOne('App\Carta','id_cliente','id');
+	}
+
 
 }

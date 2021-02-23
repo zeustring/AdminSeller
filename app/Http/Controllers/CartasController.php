@@ -42,14 +42,24 @@ class CartasController extends Controller
    		return redirect('Cartas');
 
    }
-
+   public function Editar(Request $request)
+   {
+    $carta         =      Carta::find($request['IdCarta']);
+    $carta->monto  =      $request['Monto'];
+    $carta->save();
+    return redirect('Cartas');
+   }
    public function GenerarCartas(Request $request)
    {
-   	 
+   	 if($request['carta'] == null)
+     {
+      return redirect('Cartas');
+     }
    	 $pdf = PDF::loadView('Cartas.carta',['carta' => $request['carta']]);
    	 $pdf->setPaper('lettle');
      return $pdf->download('invoice.pdf');
    }
+
    public function Eliminar($id)
    {
       $carta         =    Carta::find($id);

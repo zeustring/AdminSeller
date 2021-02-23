@@ -7,8 +7,12 @@
 <style type="text/css">
   .labels label{
     color: #e83434;
-    margin-bottom: -15px;
+    margin-bottom: -20px;
     position: relative;
+    font-size: 15px;
+  }
+  .datos{
+    font-size: 13px;
   }
 </style>
   <form method="post" action="{{url('Cartas/Registro')}}">
@@ -27,26 +31,52 @@
                  
               <input type="hidden" name="IdCliente" value="{{$cliente->id}}">
               <div class="form-group">
-                    <label >Nombre: </label><br>
+                    <label >Nombre : </label><br>
                     {{$cliente->nombre}} {{$cliente->apellido_pa}} {{$cliente->apellido_ma}}
               </div>
-              <div class="form-group">
-                    <label >Direccion: </label> <br>
-                    {{$cliente->calle}} 
-                    #{{$cliente->no_ext}}
-                    @if($cliente->no_int != "")
-                      Int {{$cliente->no_int}}
-                    @endif 
-                    Col. {{$cliente->colonia->nombre}} 
-                    <label>{{$cliente->ciudad->nombre}}</label>
+              <div class="form-group datos">
+                    <label >Domicilio : </label><br>
+                    <label class="text-info datos">
+                            Calle/Numero :
+                    </label> {{$cliente->calle}} 
+                            #{{$cliente->no_ext}}
+                               @if($cliente->no_int != "")
+                                  Int {{$cliente->no_int}}
+                               @endif <br>
+                    <label class="text-info datos">
+                            Colonia :
+                    </label>
+                            {{$cliente->colonia->nombre}} <br>
+                    <label class="text-info datos">
+                            Ciudad :
+                    </label>
+                            {{$cliente->ciudad->nombre}} <br>
+                    
 
               </div>
-              <div class="form-group">
-                <label>Ultima Gestión: </label><br>
-                    Sin Gestion
+              <div class="form-group datos">
+                <label>Ultima Gestión : </label><br>
+                    <label class="text-info">
+                            Canal :
+                    </label>
+                            {{$cliente->cartas->empleado->canal->nombre}}<br>
+                     <label class="text-info">
+                            Sucursal :
+                    </label>
+                            {{$cliente->cartas->empleado->sucursal->no_sucursal}} 
+                            {{$cliente->cartas->empleado->sucursal->nombre}}<br>       
+                    <label class="text-info">
+                            Asesor :
+                    </label>
+                            {{$cliente->cartas->empleado->nombre}}
+                            {{$cliente->cartas->empleado->apellido_pa}}<br>
+                    <label class="text-info">
+                            Fecha :
+                    </label>
+                            <?php echo date('j/m/Y',strtotime($cliente->cartas->created_at)) ; ?>
               </div>
               <div class="form-group">
-                <label>Tipo de Carta: </label><br>
+                <label>Tipo de Carta : </label><br>
                      {{$CartaPred->tipoCarta->canal->nombre}} / {{$CartaPred->tipoCarta->nombre}}
 
                   <button class="btn btn-warning"

@@ -60,6 +60,7 @@ Route::get('Cartas','CartasController@index');
 Route::post('Cartas/Registro','CartasController@Registro');
 Route::post('Cartas/GenerarCartas/','CartasController@GenerarCartas');
 Route::get('Cartas/Eliminar/{id}','CartasController@Eliminar');
+Route::post('Cartas/Editar','CartasController@Editar');
 
 Route::get('Empleados','EmpleadosController@index');
 Route::post('Empleados/Registro','EmpleadosController@Registro');

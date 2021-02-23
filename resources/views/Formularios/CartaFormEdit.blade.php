@@ -11,8 +11,9 @@
     position: relative;
   }
 </style>
-  <form method="post" action="{{url('Cartas/Registro')}}">
-  {{ csrf_field() }}          
+  <form method="post" action="{{url('Cartas/Editar')}}">
+  {{ csrf_field() }}  
+  <input type="hidden" name="IdCarta" value="{{$carta->id}}">        
  <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                  
             <div class="modal-body labels" style="background: #3b285f; color: #EEE">
@@ -34,7 +35,7 @@
                 </div>
                 
                  
-              <input type="hidden" name="IdCliente" value="">
+              
               <div class="form-group">
                     <label >Nombre:</label><br>
                             {{$carta->cliente->nombre}} 
