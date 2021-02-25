@@ -15,15 +15,15 @@
               <!-- /.card-header -->
               <div class="card-body">
          
-          
-          
-             
+      <style type="text/css">
+
+</style>
          
          <div class="row">
           <div class="col-sm-12 card-body table-responsive p-0">
             <form id="cartas" action="{{url('Cartas/GenerarCartas')}}" method="post">
               {{ csrf_field() }} 
-            <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info" style="max-width:1150px; min-width: 1150px; font-size: 14px;">
+            <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info" style="max-width:1150px; min-width: 1200px; font-size: 14px;">
                   <thead>
                   <tr role="row">
                     <th width="10%">
@@ -45,7 +45,7 @@
                      Monto
                      </center>
                     </th>
-                    <th width="10%">
+                    <th width="15%">
                       <center>
                      Carta
                      </center>
@@ -60,7 +60,7 @@
                   <tr role="row" class="odd" >
                     <td>
                       <center>
-                        <input type="checkbox" value="{{$row->id}}" name="carta[]">
+                        <input type="checkbox" value="{{$row->id}}" name="carta[]" class="form-control" style="width: 20px; margin-top: -10px; ">
                       </center>
                     </td>
                     <td>{{$row->cliente->cu1}}-
@@ -70,11 +70,11 @@
                     <td>{{$row->cliente->nombre}} 
                         {{$row->cliente->apellido_pa}} 
                         {{$row->cliente->apellido_ma}}</td>
-                    <td>  {{$row->cliente->calle}} 
-                         #{{$row->cliente->no_ext}}
-                          {{$row->cliente->no_int}}.
-                          Col. {{$row->cliente->colonia->nombre}}
-                               {{$row->cliente->ciudad->nombre}}
+                    <td>{{$row->cliente->calle}} 
+                        #{{$row->cliente->no_ext}}
+                        {{$row->cliente->no_int}}.
+                        Col. {{$row->cliente->colonia->nombre}}
+                        {{$row->cliente->ciudad->nombre}}
                           
                     </td>
                     <td>
@@ -84,7 +84,7 @@
                     </td>
                     <td>
                       <center>
-                        Elektra
+                        {{$row->tipoCarta->nombre}}
                       </center> 
                     </td>
                     <td>

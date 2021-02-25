@@ -151,6 +151,15 @@
               </p>
             </a>
            </li>
+           <li class="nav-item has-treeview">
+            <a href="{{url('Membresia')}}" class="nav-link ">
+              <i class="nav-icon fas fa-receipt"></i>
+              <p>
+                Membresia
+               
+              </p>
+            </a>
+           </li>
           @if(Auth::user()->id_jerarquia <= 2)
           <li class="nav-item has-treeview">
             <a href="{{url('Empleados')}}" class="nav-link ">

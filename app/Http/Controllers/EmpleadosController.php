@@ -34,6 +34,18 @@ class EmpleadosController extends Controller
     	$empleado->id_canal       =  $request['IdCanal'];
     	$empleado->save();
     	}
+        $empleado                 =  Empleado::all()->last();
+
+        $membrecia                =  new Membresia;
+        $membresia->id_empleado   =  $empleado->id;
+        $membresia->id_estatus    =  2;
+        $membresia->save();
+
+        $CartaPre                 =  new CartaPredefinida;
+        $CartaPre->id_empleado    =  $empleado->id; 
+        $CartaPre->id_tipo_carta  =  1;
+        $carta->save();
+        
     	return redirect('Empleados');
     }
 

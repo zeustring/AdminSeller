@@ -71,6 +71,9 @@ Route::post('Clientes/Editar','MisClientesController@Editar');
 Route::post('Clientes/Search','MisClientesController@Search');
 Route::post('MisClientes/ConfirmarRegistro/','MisClientesController@ConfirmarRegistro');
 
+Route::get('Membresia','MembresiasController@index');
+
+
 Route::get('/clear-cache', function() {
     Artisan::call('cache:clear');
     return "Cache is cleared";

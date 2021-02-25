@@ -15,16 +15,12 @@ class TipoCarta extends Model
 						   'img_if_1',
 						   'img_if_2',
 						   'img_if_3',
-						   'id_empleado',
 						   'id_canal'
 						   ];
 	public function canal()
 	{
 		return $this->belongsTo('App\Canal','id_canal');
 	}
-	public function empleado()
-	{
-		return $this->belongsTo('App\Empleado','id_empleado');
-	}
+
 						
 }

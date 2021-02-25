@@ -77,8 +77,7 @@
                               id="{{$row->id}}">
                         <i class="fa fa-edit"></i>
                       </button>
-                      <button class="btn btn-info btn-xs" style="font-size: 15px;">
-                        <i class="fa fa-eye"></i>
+                     
                       </button>
                       </center>  
                   @endforeach   
