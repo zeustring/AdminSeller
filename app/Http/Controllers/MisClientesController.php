@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Sucursal;
 use App\Cliente;
+use App\Membresia;
 use Auth;
 use DB;
 class MisClientesController extends Controller
@@ -13,7 +14,10 @@ class MisClientesController extends Controller
     {	$MisClientes     =    Cliente::where('clientes.id_empleado','=',Auth::user()->id)
                                      ->orderBy('id')
                                      ->get();
-    	return view('MisClientes.index',['MisClientes' => $MisClientes]);
+        $membresia     =     Membresia::where('id_empleado','=',Auth::user()->id)->first();
+       
+    	return view('MisClientes.index',['MisClientes' => $MisClientes,
+                                         'membresia' => $membresia]);
     }
 
     public function Registro(Request $request)
@@ -124,7 +128,8 @@ class MisClientesController extends Controller
                                  ->get(); 
        }
 
-
-     return view('MisClientes.Search',['SearchCliente' => $SearchCliente]);
+     $membresia     =     Membresia::where('id_empleado','=',Auth::user()->id)->first();
+     return view('MisClientes.Search',['SearchCliente' => $SearchCliente,
+                                       'membresia' => $membresia]);
     }
 }

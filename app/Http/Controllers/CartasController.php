@@ -11,6 +11,7 @@ use App\Cliente;
 use App\Colonia;
 use App\Ciudad;
 use App\Canal;
+USE App\Membresia;
 use Auth;
 
 
@@ -23,8 +24,9 @@ class CartasController extends Controller
                                 ->where('id_estatus','=','4')
                                 ->orderby('id','desc')
                                 ->get();
-
-		return view('Cartas.index',['cartas' => $cartas]);
+    $membresia     =     Membresia::where('id_empleado','=',Auth::user()->id)->first();
+		return view('Cartas.index',['cartas' => $cartas,
+                                'membresia' => $membresia]);
 	}
 
    public function Registro(Request $request)

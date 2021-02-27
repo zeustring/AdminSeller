@@ -1,16 +1,35 @@
 @extends('layouts.app-menu')
 @section('contend')
+@if($membresia->id_estatus == 2)
+         <div class="card-header" style="background: #3b285f; color: #EEE;">
+               <center>
+                Tu <b>Membresia</b> se encuentra actualmente <br>
+                   <b class="text-warning"> 😭💔 {{$membresia->estatus->nombre}} 💔😭 </b><br><br>
+                   <a href="" class="btn btn-warning btn-xs">
+                   💵 Pagar Membresia 💵</a>
+                </center>
+              </div> 
+@endif
     <div class="card">
+
               <div class="card-header">
                 <h3 class="card-title">Mis Clientes</h3>
-                 <button class="btn btn-success BotonModal" 
+                @if($membresia->id_estatus == 2)
+                 <button class="btn btn-success BotonModal disabled"> 
+                        <i class="fas fa-users"></i>
+                        Nuevo
+                </button>
+                @else
+                  <button class="btn btn-success BotonModal" 
                         data-toggle="modal" 
                         data-target="#modal-lg"
                         id="MisClientesRegistro"> 
                         <i class="fas fa-users"></i>
                         Nuevo
                 </button>
+                @endif
               </div>
+
               <!-- /.card-header -->
               <div class="card-body">
          
@@ -62,6 +81,17 @@
 
                     <td>
                       <center>
+                      @if($membresia->id_estatus == 2)
+                      <button class="btn bg-purple btn-xs disabled" 
+                              style="font-size: 15px;">
+                        <i class="fas fa-envelope-open-text"></i>
+                      </button>
+                      <button class="btn btn-success btn-xs disabled"
+                              style="font-size: 15px;">
+                        <i class="fa fa-edit"></i>
+                      </button>
+                      @else
+
                       <button class="btn bg-purple btn-xs CartaCliente" 
                               style="font-size: 15px;"
                               data-toggle="modal" 
@@ -70,6 +100,7 @@
                               >
                         <i class="fas fa-envelope-open-text"></i>
                       </button>
+
                       <button class="btn btn-success btn-xs EditarCliente"
                               style="font-size: 15px;"
                               data-toggle="modal" 
@@ -77,7 +108,7 @@
                               id="{{$row->id}}">
                         <i class="fa fa-edit"></i>
                       </button>
-                     
+                     @endif
                       </button>
                       </center>  
                   @endforeach   

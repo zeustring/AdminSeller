@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-
+use Auth;
+use App\Membresia;
 class DashboardController extends Controller
 {
     public function index()
-    {
-    	return view('dashboard.index');
+    {  
+        $membresia     =     Membresia::where('id_empleado','=',Auth::user()->id)->first();
+    	return view('dashboard.index',['membresia' => $membresia]);
     }
 
 

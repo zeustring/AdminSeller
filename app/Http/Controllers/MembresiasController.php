@@ -13,4 +13,9 @@ class MembresiasController extends Controller
     	$membresia     =     Membresia::where('id_empleado','=',Auth::user()->id)->first();
     	return view('Membresias.index',['membresia' => $membresia]);
     }
+
+    public function Pago()
+    {
+    	return view('Membresias.Pago');
+    }
 }

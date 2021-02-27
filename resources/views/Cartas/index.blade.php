@@ -1,16 +1,33 @@
 @extends('layouts.app-menu')
 @section('contend')
-
+@if($membresia->id_estatus == 2)
+         <div class="card-header" style="background: #3b285f; color: #EEE;">
+               <center>
+                Tu <b>Membresia</b> se encuentra actualmente <br>
+                   <b class="text-warning"> 😭💔 {{$membresia->estatus->nombre}} 💔😭 </b><br><br>
+                   <a href="" class="btn btn-warning btn-xs">
+                   💵 Pagar Membresia 💵</a>
+                </center>
+              </div> 
+@endif
     <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Mis Cartas</h3>
-                <button class="btn btn-success BotonModal" 
+                @if($membresia->id_estatus == 2)
+                 <button class="btn btn-success BotonModal disabled"> 
+                        <i class="fas fa-list"></i>
+                        Reporte
+                </button>
+                @else
+                  <button class="btn btn-success BotonModal" 
                         data-toggle="modal" 
                         data-target="#modal-lg"
                         id="ReporteCartas"> 
                         <i class="fas fa-list"></i>
                         Reporte
                 </button>
+                @endif
+
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -27,9 +44,16 @@
                   <thead>
                   <tr role="row">
                     <th width="10%">
+                     @if($membresia->id_estatus == 2)
+                     <button class="btn bg-purple btn-xs GenerarCartas disabled" type="button">
+                       Generar <i class="fa fa-save"></i>
+                     </button>
+                     @else
                      <button class="btn bg-purple btn-xs GenerarCartas" type="submit">
                        Generar <i class="fa fa-save"></i>
                      </button>
+
+                     @endif
                     </th>
                     <th width="15%">
                      CU
@@ -60,7 +84,11 @@
                   <tr role="row" class="odd" >
                     <td>
                       <center>
+                        @if($membresia->id_estatus == 2)
+                        <input type="checkbox"  name="carta[]" class="form-control" style="width: 20px; margin-top: -10px; " disabled>
+                        @else
                         <input type="checkbox" value="{{$row->id}}" name="carta[]" class="form-control" style="width: 20px; margin-top: -10px; ">
+                        @endif
                       </center>
                     </td>
                     <td>{{$row->cliente->cu1}}-
