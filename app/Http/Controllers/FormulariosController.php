@@ -126,4 +126,9 @@ class FormulariosController extends Controller
         $carta     =      Carta::find($id);
         return view('Formularios.CartaFormEdit',['carta'   => $carta]);
     }
+
+    public function PagoAzteca()
+    {
+        return view('Formularios.PagoAzteca');
+    }
 }

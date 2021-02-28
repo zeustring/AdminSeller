@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Membresia;
+use App\PagoMembresia;
 use Auth;
 class MembresiasController extends Controller
 {
@@ -14,8 +15,35 @@ class MembresiasController extends Controller
     	return view('Membresias.index',['membresia' => $membresia]);
     }
 
-    public function Pago()
+    public function FormasPago()
     {
-    	return view('Membresias.Pago');
+    	return view('Membresias.FormasPago');
+    }
+
+    public function GuardarPago(Request $request)
+    {
+    	$membresia     =     Membresia::where('id_empleado','=',Auth::user()->id)->first();
+    	
+
+
+    	$imagen                        = $request->file('Pago');
+    	$nombre                        = Auth::user()->no_empleado.'-'.time().'.'.$imagen->getClientOriginalExtension();
+    	$storage                       = public_path('imagen/pagos/');
+    	$request->Pago->move($storage,$nombre);
+
+    	$pagoMembresia                 =     new PagoMembresia;
+    	$pagoMembresia->id_membresia   =     $membresia->id;
+    	$pagoMembresia->id_empleado    =     Auth::user()->id;
+    	$pagoMembresia->forma_pago     =     "Deposito Banco Azteca";
+    	$pagoMembresia->id_estatus     =     4;
+    	$pagoMembresia->cantidad       =     40;
+    	$pagoMembresia->img_pago       =     $nombre;
+    	$pagoMembresia->save();
+
+    	$membresia                     =     Membresia::where('id_empleado','=',Auth::user()->id)->first();
+    	$membresia->id_estatus         =     1;
+    	$membresia->save();
+
+    	return redirect('Membresia');
     }
 }

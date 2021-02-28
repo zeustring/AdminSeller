@@ -5,7 +5,7 @@
                <center>
                 Tu <b>Membresia</b> se encuentra actualmente <br>
                    <b class="text-warning"> 😭💔 {{$membresia->estatus->nombre}} 💔😭 </b><br><br>
-                   <a href="{{url('Membresia/Pago')}}" class="btn btn-warning btn-xs">
+                   <a href="{{url('Membresia/FormasPago')}}" class="btn btn-warning btn-xs">
                    💵 Pagar Membresia 💵</a>
                 </center>
               </div> 

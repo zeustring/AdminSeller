@@ -55,6 +55,7 @@ Route::get('Formularios/SearchCliente','FormulariosController@SearchCliente');
 Route::get('Formularios/CartaCliente/{id}','FormulariosController@CartaCliente');
 Route::get('Formularios/EditarCarta/{id}','FormulariosController@EditarCarta');
 Route::get('Formularios/SelectTipoBusqueda/{busqueda}','FormulariosController@SelectTipoBusqueda');
+Route::get('Formularios/PagoAzteca','FormulariosController@PagoAzteca');
 
 Route::get('Cartas','CartasController@index');
 Route::post('Cartas/Registro','CartasController@Registro');
@@ -72,7 +73,8 @@ Route::post('Clientes/Search','MisClientesController@Search');
 Route::post('MisClientes/ConfirmarRegistro/','MisClientesController@ConfirmarRegistro');
 
 Route::get('Membresia','MembresiasController@index');
-Route::get('Membresia/Pago','MembresiasController@Pago');
+Route::get('Membresia/FormasPago','MembresiasController@FormasPago');
+Route::post('Membresia/GuardarPago','MembresiasController@GuardarPago');
 
 
 Route::get('/clear-cache', function() {
