@@ -11,8 +11,8 @@ class MembresiasController extends Controller
 {
     public function index()
     {	
-    	$membresia     =     Membresia::where('id_empleado','=',Auth::user()->id)->first();
-    	return view('Membresias.index',['membresia' => $membresia]);
+    	$pagoMembresia     =     PagoMembresia::where('id_empleado','=',Auth::user()->id)->get();
+    	return view('Membresias.index',['pagoMembresia' => $pagoMembresia]);
     }
 
     public function FormasPago()
@@ -34,9 +34,10 @@ class MembresiasController extends Controller
     	$pagoMembresia                 =     new PagoMembresia;
     	$pagoMembresia->id_membresia   =     $membresia->id;
     	$pagoMembresia->id_empleado    =     Auth::user()->id;
-    	$pagoMembresia->forma_pago     =     "Deposito Banco Azteca";
+    	$pagoMembresia->forma_pago     =     "Banco Azteca";
     	$pagoMembresia->id_estatus     =     4;
     	$pagoMembresia->cantidad       =     40;
+    	$pagoMembresia->confirmed_at   =     null;
     	$pagoMembresia->img_pago       =     $nombre;
     	$pagoMembresia->save();
 

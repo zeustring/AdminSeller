@@ -3,29 +3,19 @@
 <style type="text/css">
 
 </style>
-    <div class="card">
-              <div class="card-header" style="background: #3b285f; color: #EEE;">
-               <center>
-                Tu <b>Membresia</b> se encuentra actualmente <br>
-                @if($membresia->id_estatus == 2)
-                   <b class="text-warning"> 😭💔 {{$membresia->estatus->nombre}} 💔😭 </b><br><br>
-                   <a href="" class="btn btn-warning btn-xs">
-                   💵 Pagar Membresia 💵</a>
+<div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Lista de mis Pagos</h3>
 
-                @else
-                    <b class="text-success">🥰🌟 {{$membresia->estatus->nombre}} 🌟🥰</b>
-                @endif
-                </center>
-              </div> 
-              <!-- /.card-header -->
-              <div class="card-body">
+              </div>
+    <div class="card-body">
          
 
          
          <div class="row">
           <div class="col-sm-12 card-body table-responsive p-0">
            
-            <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info" >
+            <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info"  style=" min-width: 850px; font-size: 14px;">
                   <thead>
                   <tr role="row">
                     
@@ -33,55 +23,88 @@
                      Folio
                     </th>
                     <th width="20%">
-                     Fecha de pago
+                     F. de Pago
                     </th>
-                    <th width="35%">
+                    <th width="20%">
+                     F. Pago Aprobado
+                    </th>
+                    <th width="20%">
                      Tipo de Pago
                     </th>
                     
-                    <th width="5%" >
+                    <th width="20%" >
                      <center>Opiones</center>
                     </th>
                   </thead>
                   <tbody>
                  
-                
+                @foreach($pagoMembresia as $row)
                   <tr role="row" class="odd" >
                     <td>
-                      765653
+                     F {{$row->id}}
                     </td>
                     <td>
-                      14/08/2021
+                      {{$row->created_at}} 🟢
                     </td>
                     <td>
-                      Depositito
+                      {{  $row->confirmed_at 
+                        ? $row->confirmed_at." 🟢"
+                        : "Sin Confirmar 🟡"
+                      }}
+                    </td>
+                    <td>
+                      {{$row->forma_pago}}
                     </td>
                     <td>
                       <center>
-                      <button class="btn btn-success btn-xs EditarCarta"
+                      <button class="btn btn-success btn-xs VerComproPago"
                               
                               data-toggle="modal" 
                               data-target="#modal-lg"
-                              id=""
+                              id="{{$row->id}}"
                               type="button">
-                        <i class="fa fa-eye"></i>
+                        <i class="fa fa-image"></i>
                       </button>
                      
                       </center>  
-                   
-                  
                     </td>
                   </tr>
+                @endforeach
                 </tbody>
-                  
-                </table>
-                </form> 
-              </div></div>
+              </table>
+ 
               </div>
+            </div>
+      </div>
               
               <!-- /.card-body -->
-  </div>
+</div>
+<script type="text/javascript">
+              $(document).ready(function(){
 
+                
+                 $(".VerComproPago").click(function(){
+                            
+                            var urls       =  "<?php echo url('Formularios/ImgPago')  ?>";
+                            var id         =  $(this).attr('id');
+                            $("#RespuestaModal").css('display','none');
+                             $.ajax({
+                                      type: "GET",
+                                      url: urls+'/'+id,
+                                      dataType: "html",
+                                      
+                                      error: function(){
+                                            alert("error petición actualize o cantacte al programador");
+                                      },
+                                      success: function(data){
+                                        $("#RespuestaModal").css('display','block');
+                                       $("#RespuestaModal").html(data);
+                                }
+                          });
+                  });
+           });
+
+</script>
 
 @endsection
  

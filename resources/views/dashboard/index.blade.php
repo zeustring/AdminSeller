@@ -1,6 +1,7 @@
 @extends('layouts.app-menu')
 @section('contend')
-@if($membresia->id_estatus == 2)
+@if(Auth::user()->id_jerarquia > 2)
+		@if($membresia->id_estatus == 2) 
          <div class="card-header" style="background: #3b285f; color: #EEE;">
                <center>
                 Tu <b>Membresia</b> se encuentra actualmente <br>
@@ -9,6 +10,7 @@
                    💵 Pagar Membresia 💵</a>
                 </center>
               </div> 
+         @endif
 @endif
     
       

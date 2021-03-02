@@ -58,6 +58,20 @@
     width: 90px;
     margin-top: -7px;
   }
+  .texto-user{
+    color: #b0b2b5;
+    font-size: 12px;
+  }
+  .texto-user label{
+    margin-bottom: -10px;
+    margin-left: 10px;
+  }
+  .imagen-usuario img{
+    position: relative;
+    width: 80px;
+    border-radius: 6px;
+    margin-top: 5px;
+  }
   </style>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -111,11 +125,19 @@
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{ url('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+        <div class="imagen-usuario" >
+          <center>
+          <img src="{{ url('dist/img/user2-160x160.jpg')}}">
+          </center>
         </div>
-        <div class="info">
-          <a href="#" class="d-block">{{Auth::user()->nombre}}</a>
+        <br>
+        <div class="texto-user">
+          <label>{{Auth::user()->canal->nombre}}</label><br>
+          <label>{{Auth::user()->sucursal->nombre}}</label><br>
+          <label>{{Auth::user()->jerarquia->nombre}}</label><br>
+          <label>{{Auth::user()->nombre}}</label><br>
+          <label>{{Auth::user()->no_empleado}}</label><br>
+          
         </div>
       </div>
 
@@ -151,6 +173,8 @@
               </p>
             </a>
            </li>
+        @if(Auth::user()->id_jerarquia >= 3)
+
            <li class="nav-item has-treeview">
             <a href="{{url('Membresia')}}" class="nav-link ">
               <i class="nav-icon fas fa-receipt"></i>
@@ -160,16 +184,8 @@
               </p>
             </a>
            </li>
-          @if(Auth::user()->id_jerarquia <= 2)
-          <li class="nav-item has-treeview">
-            <a href="{{url('Empleados')}}" class="nav-link ">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Empleados
-               
-              </p>
-            </a>
-           </li>
+        @endif
+        @if(Auth::user()->id_jerarquia <= 2)
           <li class="nav-item has-treeview">
             <a href="{{url('Sucursales')}}" class="nav-link ">
               <i class="nav-icon fas fa-store-alt"></i>
@@ -179,6 +195,46 @@
               </p>
             </a>
            </li>
+          <li class="nav-item has-treeview">
+            <a href="{{url('Empleados')}}" class="nav-link ">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Empleados
+               
+              </p>
+            </a>
+           </li>
+          
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Membresias
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../charts/chartjs.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Membresias Activas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../charts/chartjs.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Membresias Inactivas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../charts/chartjs.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pendiente de Autorización</p>
+                </a>
+              </li>
+          
+            </ul>
+          </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-list"></i>
@@ -229,6 +285,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
+      
       @yield('contend')
     </section>
 

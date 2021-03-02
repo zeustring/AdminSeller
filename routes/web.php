@@ -56,6 +56,7 @@ Route::get('Formularios/CartaCliente/{id}','FormulariosController@CartaCliente')
 Route::get('Formularios/EditarCarta/{id}','FormulariosController@EditarCarta');
 Route::get('Formularios/SelectTipoBusqueda/{busqueda}','FormulariosController@SelectTipoBusqueda');
 Route::get('Formularios/PagoAzteca','FormulariosController@PagoAzteca');
+Route::get('Formularios/ImgPago/{id}','FormulariosController@ImgPago');
 
 Route::get('Cartas','CartasController@index');
 Route::post('Cartas/Registro','CartasController@Registro');

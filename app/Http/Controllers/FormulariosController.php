@@ -13,6 +13,7 @@ use App\Jerarquia;
 use App\Canal;
 use App\Carta;
 use App\CartaPredefinida;
+use App\PagoMembresia;
 use Auth;
 use DB;
 class FormulariosController extends Controller
@@ -90,7 +91,7 @@ class FormulariosController extends Controller
     }
     public function EditarCliente($id)
     {
-        $cliente          =   Cliente::find($id);
+        $cliente     =     Cliente::find($id);
         $sucursal    =     Sucursal::where('id','=',Auth::user()->id_sucursal)->first();
         $ciudad      =     Ciudad::where('id','=',$sucursal->id_ciudad)->first();
         $colonias    =     Colonia::where('id_ciudad','=',$ciudad->id)
@@ -130,5 +131,9 @@ class FormulariosController extends Controller
     public function PagoAzteca()
     {
         return view('Formularios.PagoAzteca');
+    }
+    public function ImgPago($id)
+    {   $imagen       =     PagoMembresia::find($id)->img_pago;
+        return view('Formularios.ImgPago',['imagen' => $imagen]);
     }
 }

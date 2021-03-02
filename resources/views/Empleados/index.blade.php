@@ -12,12 +12,7 @@
                         Nuevo
                 </button>
               </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-         
-         	
 
-             	</div>
              
          
          <div class="row">
@@ -34,9 +29,7 @@
                   	<th >
                   	 Sucursal
                   	</th>
-                  	<th >
-                  	 Membrecia
-                  	</th>
+                  	
                   	<th >
                   	 Opiones
                   	</th>
@@ -49,7 +42,7 @@
                     <td>{{$row->no_empleado}}</td>
                     <td>{{$row->nombre}} {{$row->apellido_pa}} {{$row->apellido_ma}}</td>
                     <td>{{$row->sucursal->no_sucursal}} {{$row->sucursal->nombre}}</td>
-                    <td>Sin membrecia</td> 
+                   
                     <td>
                       <center>
                         <button class="btn btn-success btn-xs">
@@ -58,9 +51,7 @@
                         <button class="btn btn-info btn-xs">
                           <i class="fas fa-eye"></i>
                         </button>
-                        <button class="btn bg-purple btn-xs">
-                          <i class="fas fa-money-bill-alt"></i>
-                        </button>
+                        
                       </center>
                   @endforeach   
                     </td>
@@ -68,8 +59,10 @@
                 </tbody>
                   
                 </table>
-              </div></div>
               </div>
+            </div>
+
+          
               
               <!-- /.card-body -->
   </div>
