@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Membresia;
 use App\PagoMembresia;
 use Auth;
+use Mail;
 class MembresiasController extends Controller
 {
     public function index()
@@ -44,7 +45,34 @@ class MembresiasController extends Controller
     	$membresia                     =     Membresia::where('id_empleado','=',Auth::user()->id)->first();
     	$membresia->id_estatus         =     1;
     	$membresia->save();
+        
 
+        $pago                          =     PagoMembresia::all()->last();
+        $data = array('pago'=>$pago);
+
+        Mail::send('emails.ConfirmacionPago', $data, function($message) {
+            
+            $message->to('zeustring@gmail.com','Cristian Hernandez')
+                    ->from('ads.zeustring@gmail.com','AdminSeller')
+                    ->subject('Confirmacion de Pago');
+        });
     	return redirect('Membresia');
     }
+
+    public function ValidarPago($id)
+    {
+        $pago             =          PagoMembresia::find($id);
+        return view('Membresias.ValidarPago',['pago' => $pago]);
+    }
+    public function PagoAutorizar($id)
+    {
+        
+        $pago                 =          PagoMembresia::find($id);
+        $pago->confirmed_at   =          date('Y-m-d h:i:s');
+        $pago->id_estatus     =          6;
+        $pago->save();
+
+        return 'Se autorizo el Pago';
+    }
+
 }

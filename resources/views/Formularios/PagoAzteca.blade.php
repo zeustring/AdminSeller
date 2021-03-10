@@ -5,7 +5,7 @@
               </button>
 </div>
 <style type="text/css">
-  label{
+  .modal-body label{
     color: #e83434;
     margin-bottom: -5px;
     position: relative;
@@ -49,10 +49,20 @@
                   <br>
                   1271 8000 1142 9323 75
                 </div>
+                <center>
+                <label class="text-warning" style="font-size: 20px;">
+                  $40.<label style="font-size: 12px;
+                                    margin-top: 3px;
+                                    position: absolute;"
+                                    class="text-warning">00
+                      </label><label class="text-warning" style="margin-left: 15px; font-size:18px"> MXN</label><br>
+                  <label class="text-warning" style="font-size: 14px">Pago de Membresia</label>
+                 </label>
+                </center>
                 <hr>
                 <div class="text-center" >
                   <label class="text-warning">Instrucciones:</label><br>
-                  Realiza el depósito y toma una Foto/Captura del depósito 📸 <br>
+                  Realiza el pago y toma una Foto/Captura del depósito 📸 <br>
                   Sube la imagen en el siguiente formulario 💾<br>
                   Tu membresia quedara activa de inmediato ✅<br>
                   Te avisaremos cuando se apruebe tu pago. ⏳<br>

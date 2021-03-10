@@ -74,9 +74,9 @@ Route::group(['middleware' => ['Sesion']], function () {
 	Route::get('Membresia','MembresiasController@index');
 	Route::get('Membresia/FormasPago','MembresiasController@FormasPago');
 	Route::post('Membresia/GuardarPago','MembresiasController@GuardarPago');
-
-
 });
+Route::get('Membresia/ValidarPago/{id}','MembresiasController@ValidarPago');
+Route::get('Membresia/PagoAutorizar/{id}','MembresiasController@PagoAutorizar');
 
 
 Route::get('updateApp/sources','UpdateAppController@sources');

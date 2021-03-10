@@ -41,6 +41,7 @@ class Empleado extends Authenticatable
     {
         return $this->belongsTo('App\Canal','id_canal');
     }
+  
 
     protected $hidden = [
         'password', 'remember_token',

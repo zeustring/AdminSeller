@@ -14,5 +14,17 @@ class PagoMembresia extends Model
 							  'cantidad',
 							  'img_pago',
 							  'confirmed_at'];
+	public function membresia()
+	{
+		return $this->belongsTo('App\Membresia','id_membresia');
+	}
+	public function empleado()
+	{
+		return $this->belongsTo('App\Empleado','id_empleado');
+	}
+	public function estatus()
+	{
+		return $this->belongsTo('App\Estatus','id_estatus');
+	}
 
 }
