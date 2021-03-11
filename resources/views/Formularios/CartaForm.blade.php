@@ -59,21 +59,29 @@
                     <label class="text-info">
                             Canal :
                     </label>
-                            {{$cliente->cartas->empleado->canal->nombre}}<br>
+                            {{  $cliente->cartas
+                              ? $cliente->cartas->empleado->canal->nombre
+                              : "Sin Datos"}}<br>
                      <label class="text-info">
                             Sucursal :
                     </label>
-                            {{$cliente->cartas->empleado->sucursal->no_sucursal}} 
-                            {{$cliente->cartas->empleado->sucursal->nombre}}<br>       
+                            {{  $cliente->cartas
+                              ? $cliente->cartas->empleado->sucursal->no_sucursal." ".$cliente->cartas->empleado->sucursal->nombre
+                              : "Sin Datos" }} 
+                            <br>       
                     <label class="text-info">
                             Asesor :
                     </label>
-                            {{$cliente->cartas->empleado->nombre}}
-                            {{$cliente->cartas->empleado->apellido_pa}}<br>
+                            {{   $cliente->cartas
+                              ? $cliente->cartas->empleado->nombre." ".$cliente->cartas->empleado->apellido_pa
+                              : "Sin Datos"}}
+                            <br>
                     <label class="text-info">
                             Fecha :
                     </label>
-                            <?php echo date('j/m/Y',strtotime($cliente->cartas->created_at)) ; ?>
+                            {{   $cliente->cartas
+                              ?  date('j/m/Y',strtotime($cliente->cartas->created_at))
+                              : "Sin Datos" }}
               </div>
               <div class="form-group">
                 <label>Tipo de Carta : </label><br>

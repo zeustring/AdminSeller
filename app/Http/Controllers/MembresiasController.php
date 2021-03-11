@@ -50,7 +50,7 @@ class MembresiasController extends Controller
         $pago                          =     PagoMembresia::all()->last();
         $data = array('pago'=>$pago);
 
-        Mail::send('emails.ConfirmacionPago', $data, function($message) {
+        Mail::send('Emails.ConfirmacionPago', $data, function($message) {
             
             $message->to('zeustring@gmail.com','Cristian Hernandez')
                     ->from('ads.zeustring@gmail.com','AdminSeller')
