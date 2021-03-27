@@ -27,9 +27,9 @@ class MembresiasController extends Controller
     	
 
 
-    	$imagen                        = $request->file('Pago');
-    	$nombre                        = Auth::user()->no_empleado.'-'.time().'.'.$imagen->getClientOriginalExtension();
-    	$storage                       = public_path('imagen/pagos/');
+    	$imagen                        =     $request->file('Pago');
+    	$nombre                        =     Auth::user()->no_empleado.'-'.time().'.'.$imagen->getClientOriginalExtension();
+    	$storage                       =     public_path('../public_html/adminseller/imagen/pagos/');
     	$request->Pago->move($storage,$nombre);
 
     	$pagoMembresia                 =     new PagoMembresia;

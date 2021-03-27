@@ -265,15 +265,7 @@
             </ul>
           </li>
           @endif
-           <li class="nav-item has-treeview">
-            <a href="{{url('updateApp/sources')}}" class="nav-link ">
-              <i class="nav-icon fas fa-tools"></i>
-              <p>
-                Configuración
-                
-              </p>
-            </a>
-           </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
