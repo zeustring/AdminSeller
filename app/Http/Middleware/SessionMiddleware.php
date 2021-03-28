@@ -18,6 +18,11 @@ class SessionMiddleware
      */
     public function handle($request, Closure $next)
     {
+        if(Auth::guest())
+           {
+             return redirect('/');
+            
+           }
         if(Auth::user()->id != 1)
         {
             $pagoMembresia                =    PagoMembresia::where('id_empleado','=',Auth::user()->id)->count();
@@ -38,11 +43,7 @@ class SessionMiddleware
              
            }
         
-           if(Auth::guest())
-           {
-             return redirect('/');
-            
-           }
+
         }
         
 

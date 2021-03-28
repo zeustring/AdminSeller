@@ -1,5 +1,16 @@
 @extends('layouts.app')
 @section('body')
+            <script type="text/javascript">
+              $(document).ready(function(){
+                $('#no_empleado').on('input', function () { 
+                   this.value = this.value.replace(/[^0-9]/g,'');
+                });
+                $('#nip').on('input', function () { 
+                   this.value = this.value.replace(/[^0-9]/g,'');
+                });
+              });
+              
+            </script>
     <div class="login-box">
       <center>
          <img src="{{url('imagen/logo-adminseller-login.png')}}" width="250" style="margin-top: 100px;margin-bottom: 50px;">
@@ -13,15 +24,29 @@
 			  
             <div class="input-group mb-3">
 			          {{ csrf_field()}}
-              <input type="number" class="form-control" placeholder="No Empleado" name="no_empleado" autocomplete="off">
+              <input type="text"
+                     class="form-control"
+                     placeholder="No Empleado"
+                     name="no_empleado" 
+                     autocomplete="off"
+                     maxlength="6" 
+                     id="no_empleado">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-user"></span>
                 </div>
               </div>
             </div>
+
             <div class="input-group mb-3">
-              <input type="password" class="form-control" placeholder="Password" name="password" autocomplete="off">
+              <input type="password" 
+                     class="form-control" 
+                     placeholder="NIP" 
+                     name="password" 
+                     autocomplete="off"
+                     maxlength="4"
+                     id="nip">
+
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-lock"></span>
