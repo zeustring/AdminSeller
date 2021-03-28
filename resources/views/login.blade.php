@@ -30,7 +30,8 @@
                      name="no_empleado" 
                      autocomplete="off"
                      maxlength="6" 
-                     id="no_empleado">
+                     id="no_empleado"
+                     inputmode="numeric">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-user"></span>
@@ -45,7 +46,8 @@
                      name="password" 
                      autocomplete="off"
                      maxlength="4"
-                     id="nip">
+                     id="nip"
+                     inputmode="numeric">
 
               <div class="input-group-append">
                 <div class="input-group-text">

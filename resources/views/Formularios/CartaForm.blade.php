@@ -105,6 +105,8 @@
                 <input type="text"
                        name="Monto"
                        autocomplete="off"
+                       inputmode="numeric" 
+                       id="Monto" 
                        required
                        class="form-control"
                        style="width: 100px;
@@ -125,3 +127,12 @@
             </div>
  </div>
  </form>
+             <script type="text/javascript">
+              $(document).ready(function(){
+               
+                $('#Monto').on('input', function () { 
+                   this.value = this.value.replace(/[^0-9]/g,'');
+                });
+              });
+              
+            </script>

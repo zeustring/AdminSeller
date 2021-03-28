@@ -14,16 +14,48 @@
                 <div class="row form-group">
                    
                   <div class="cu">
-                    <input type="text" class="form-control validanumericos"   style="width: 65px;"  name="cu1" id="cu1" maxlength="4" onkeyup="if (this.value.length == this.getAttribute('maxlength')) cu2.focus()" value="{{$cliente->cu1}}" autocomplete="off">
+                    <input type="text"
+                           class="form-control validanumericos"
+                           style="width: 65px; margin-left: 5px;"
+                           name="cu1"
+                           id="cu1"
+                           maxlength="4"
+                           onkeyup="if (this.value.length == this.getAttribute('maxlength')) cu2.focus()" autocomplete="off"
+                           inputmode="numeric"
+                           value="{{$cliente->cu1}}">
                   </div>
-                  <div class="cu" >
-                    <input type="text" class="form-control validanumericos"   style="width: 65px;" name="cu2" id="cu2" maxlength="4" onkeyup="if (this.value.length == this.getAttribute('maxlength')) cu3.focus()" value="{{$cliente->cu2}}" autocomplete="off">
+                  <div class="cu">
+                  <input type="text"
+                           class="form-control validanumericos"
+                           style="width: 65px;"
+                           name="cu2"
+                           id="cu2"
+                           maxlength="4"
+                           onkeyup="if (this.value.length == this.getAttribute('maxlength')) cu3.focus()" autocomplete="off"
+                           inputmode="numeric"
+                           value="{{$cliente->cu2}}">
                   </div>
-                  <div class="cu" >
-                    <input type="text" class="form-control validanumericos"   style="width: 65px;" name="cu3" id="cu3" maxlength="4" onkeyup="if (this.value.length == this.getAttribute('maxlength')) cu4.focus()" value="{{$cliente->cu3}}" autocomplete="off">
+                  <div class="cu">
+                  <input type="text"
+                           class="form-control validanumericos"
+                           style="width: 65px;"
+                           name="cu3"
+                           id="cu3"
+                           maxlength="4"
+                           onkeyup="if (this.value.length == this.getAttribute('maxlength')) cu4.focus()" autocomplete="off"
+                           inputmode="numeric"
+                           value="{{$cliente->cu3}}">
                   </div>
-                  <div class="col-1" >
-                    <input type="text" class="form-control validanumericos"   style="width: 70px;" name="cu4" id="cu4" maxlength="5" value="{{$cliente->cu4}}" autocomplete="off">
+                  <div class="cu">
+                  <input type="text"
+                           class="form-control validanumericos"
+                           style="width: 65px;"
+                           name="cu4"
+                           id="cu4"
+                           maxlength="6"
+                           autocomplete="off"
+                           inputmode="numeric"
+                           value="{{$cliente->cu4}}">
                   </div>
                 </div>
                 
@@ -85,7 +117,7 @@
               </div>               
               <div class="form-group">
                     <label >Telefono</label>
-                    <input type="num" class="form-control" id="Tel" placeholder="Telefono" name="Tel" value="{{$cliente->tel}}" autocomplete="off">
+                    <input type="num" class="form-control" id="Tel" placeholder="Telefono" name="Tel" value="{{$cliente->tel}}" autocomplete="off" inputmode="numeric">
               </div>
               <div class="form-group">
                     <label >E-mail</label>
@@ -162,5 +194,8 @@
                                 }
                           });
       });
+       $('#Tel').on('input', function () { 
+                   this.value = this.value.replace(/[^0-9]/g,'');
+        });
    });
  </script>
