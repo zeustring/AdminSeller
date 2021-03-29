@@ -12,7 +12,7 @@ class MisClientesController extends Controller
 {
     public function index()
     {	$MisClientes     =    Cliente::where('clientes.id_empleado','=',Auth::user()->id)
-                                     ->orderBy('id')
+                                     ->orderBy('id','desc')
                                      ->get();
         $membresia     =     Membresia::where('id_empleado','=',Auth::user()->id)->first();
        
