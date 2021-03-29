@@ -23,6 +23,7 @@ class Cliente extends Model
 							  'id_ciudad',
 							  'id_estado',
 							  'id_estatus',
+							  'id_sucursal',
 							  'id_empleado'];
 
 	public function ciudad()
@@ -44,6 +45,10 @@ class Cliente extends Model
 	public function empleado()
 	{
 		return $this->belongsTo('App\Empleado','id_empleado');
+	}
+		public function sucursal()
+	{
+		return $this->belongsTo('App\Sucursal','id_sucursal');
 	}
 
 	public function cartas()

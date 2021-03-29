@@ -47,6 +47,7 @@ class MisClientesController extends Controller
     	$cliente->no_int       =     $request['NoInterno'];
         $cliente->tel          =     $request['Tel'];
         $cliente->email        =     $request['Email'];
+        $cliente->id_sucursal  =     Auth::user()->id_sucursal;
     	$cliente->id_estado    =     $TiendaEstado->id_estado;
     	$cliente->id_ciudad    =     $request['IdCiudad'];
     	$cliente->id_colonia   =     $request['IdColonia'];
@@ -72,7 +73,7 @@ class MisClientesController extends Controller
     										->where('cu3','=',$request['cu3'])
     										->where('cu4','=',$request['cu4'])
     										->first();
-    		return '<b>'.$request['cu1']."-".$request['cu2']."-".$request['cu3']."-".$request['cu4']."</b> Este Cliente unico esta registrado a nombre de <b>".$Client->nombre." ".$Client->apellido_pa.' </b> <button class="btn btn-danger btn-xs" type="button"><i class="fa fa-eye"></i> Ver Cliente</button>';
+    		return '<b>'.$request['cu1']."-".$request['cu2']."-".$request['cu3']."-".$request['cu4']."</b> Este Cliente unico esta registrado a nombre de <b>".$Client->nombre." ".$Client->apellido_pa.' </b> <a href="Clientes/Search/'.$Client->id.'" class="btn btn-danger btn-xs" type="button"><i class="fa fa-eye"></i> Ver Cliente</a>';
     	}else{
     		return 1;
     	}
@@ -131,5 +132,12 @@ class MisClientesController extends Controller
      $membresia     =     Membresia::where('id_empleado','=',Auth::user()->id)->first();
      return view('MisClientes.Search',['SearchCliente' => $SearchCliente,
                                        'membresia' => $membresia]);
+    }
+    public function SearchGet($id)
+    {
+       $SearchCliente  =  Cliente::where('id','=',$id)->get();
+        $membresia     =     Membresia::where('id_empleado','=',Auth::user()->id)->first();
+        return view('MisClientes.Search',['SearchCliente' => $SearchCliente,
+                                          'membresia' => $membresia]);         
     }
 }

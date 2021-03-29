@@ -69,6 +69,7 @@ Route::group(['middleware' => ['Sesion']], function () {
 	Route::post('Clientes/Registro','MisClientesController@Registro');
 	Route::post('Clientes/Editar','MisClientesController@Editar');
 	Route::post('Clientes/Search','MisClientesController@Search');
+	Route::get('Clientes/Search/{id}','MisClientesController@SearchGet');
 	Route::post('MisClientes/ConfirmarRegistro/','MisClientesController@ConfirmarRegistro');
 
 	Route::get('Membresia','MembresiasController@index');

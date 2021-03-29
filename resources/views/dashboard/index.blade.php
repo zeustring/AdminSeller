@@ -77,7 +77,7 @@
               <div class="icono">
                 <i class="fass fas fa-envelope"></i>
               </div>
-                <h3>{{$clientesCount}}</h3>
+                <h3>{{$cartasSucursalCount}}</h3>
                 <i></i>
                 <p>Cartas de Sucursal</p>
               </div>
@@ -93,7 +93,7 @@
                 <div class="icono">
                 <i class="fass fas fa-users"></i>
               </div>
-                <h3>{{$clientesCount}}</h3>
+                <h3>{{$clientesSucursalCount}}</h3>
 
                 <p>Clientes Sucursal</p>
               </div>
