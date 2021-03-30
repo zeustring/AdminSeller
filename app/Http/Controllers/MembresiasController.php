@@ -12,7 +12,10 @@ class MembresiasController extends Controller
 {
     public function index()
     {	
-    	$pagoMembresia     =     PagoMembresia::where('id_empleado','=',Auth::user()->id)->get();
+    	$pagoMembresia     =     PagoMembresia::where('id_empleado','=',Auth::user()->id)
+                                              ->orderby('id','desc')
+                                              ->limit(7)
+                                              ->get();
     	return view('Membresias.index',['pagoMembresia' => $pagoMembresia]);
     }
 
@@ -29,7 +32,7 @@ class MembresiasController extends Controller
 
     	$imagen                        =     $request->file('Pago');
     	$nombre                        =     Auth::user()->no_empleado.'-'.time().'.'.$imagen->getClientOriginalExtension();
-    	$storage                       =     public_path('../public_html/adminseller/imagen/pagos/');
+    	$storage                       =     public_path('imagen/pagos/');
     	$request->Pago->move($storage,$nombre);
 
     	$pagoMembresia                 =     new PagoMembresia;

@@ -22,17 +22,16 @@
 	}
 
 	.informacion{
-		background: #343a40;
 		width: 90%;
 		padding: 20px;
 		font-size: 13px;
 		text-align: left;
 		border-radius: 4px;	
 		margin-bottom: 30px;
-		color: #FFFFFF;
+		
 	}
      label{
-		color: #ffc107;
+		color: #666;
 		
 	}
 	body{

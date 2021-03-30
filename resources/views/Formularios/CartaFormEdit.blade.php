@@ -66,8 +66,10 @@
                 <br>
                 <input type="text"
                        name="Monto"
+                       id="Monto" 
                        value="{{$carta->monto}}" 
                        autocomplete="off"
+                       inputmode="numeric" 
                        required
                        class="form-control"
                        style="width: 100px;
@@ -88,3 +90,13 @@
             </div>
  </div>
  </form>
+              <script type="text/javascript">
+              $(document).ready(function(){
+               
+                $('#Monto').on('input', function () { 
+                   this.value = this.value.replace(/[^0-9]/g,'');
+                });
+              });
+              
+            </script>
+
