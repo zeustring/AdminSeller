@@ -26,9 +26,13 @@
     
   }
  .inner p{
-  position: relative;
+  position: absolute;
   font-size: 13px;
   text-align: left;
+  margin-top: 10px;
+ }
+ .small-box{
+  height: 100px;
  }
 }
 </style>
