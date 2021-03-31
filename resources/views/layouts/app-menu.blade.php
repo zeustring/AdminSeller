@@ -22,6 +22,8 @@
   <link rel="stylesheet" href="{{url('dist/css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <style type="text/css">
     .cu{
@@ -344,6 +346,8 @@
                           });
                   });
                });
+
+    
 </script>
 <!-- jQuery -->
 <script src="{{url('plugins/jquery/jquery.min.js')}}"></script>

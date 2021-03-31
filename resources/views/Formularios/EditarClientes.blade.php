@@ -12,7 +12,6 @@
             <div class="modal-body">
               <label >Cliente Unico</label>
                 <div class="row form-group">
-                   
                   <div class="cu">
                     <input type="text"
                            class="form-control validanumericos"
@@ -195,6 +194,18 @@
                           });
       });
        $('#Tel').on('input', function () { 
+                   this.value = this.value.replace(/[^0-9]/g,'');
+        });
+       $('#cu1').on('input', function () { 
+                   this.value = this.value.replace(/[^0-9]/g,'');
+        });
+       $('#cu2').on('input', function () { 
+                   this.value = this.value.replace(/[^0-9]/g,'');
+        });
+       $('#cu3').on('input', function () { 
+                   this.value = this.value.replace(/[^0-9]/g,'');
+        });
+       $('#cu4').on('input', function () { 
                    this.value = this.value.replace(/[^0-9]/g,'');
         });
    });

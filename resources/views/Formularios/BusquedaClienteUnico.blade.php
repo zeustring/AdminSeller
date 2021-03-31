@@ -1,6 +1,7 @@
               <label >Cliente Único</label>
                 <div class="row form-group">
                     <input type="hidden" name="TipoBusqueda" value="1" >  
+                   
                   <div class="cu">
                     <input type="text"
                            class="form-control validanumericos"
@@ -41,5 +42,22 @@
                            autocomplete="off"
                            inputmode="numeric">
                   </div>
-                  
                 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+       $('#cu1').on('input', function () { 
+                   this.value = this.value.replace(/[^0-9]/g,'');
+        });
+       $('#cu2').on('input', function () { 
+                   this.value = this.value.replace(/[^0-9]/g,'');
+        });
+       $('#cu3').on('input', function () { 
+                   this.value = this.value.replace(/[^0-9]/g,'');
+        });
+       $('#cu4').on('input', function () { 
+                   this.value = this.value.replace(/[^0-9]/g,'');
+        });
+});
+       
+</script>
