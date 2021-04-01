@@ -104,6 +104,7 @@
                     
                <div class="col-9" >
                     <select class="form-control" name="IdColonia">
+                      <option value="">----------</option>
                       @foreach($colonia as $row)
                       <option value="{{$row->id}}">{{$row->nombre}}</option>
                       @endforeach

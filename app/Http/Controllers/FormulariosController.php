@@ -136,4 +136,12 @@ class FormulariosController extends Controller
     {   $imagen       =     PagoMembresia::find($id)->img_pago;
         return view('Formularios.ImgPago',['imagen' => $imagen]);
     }
+    public function CambioTelefono()
+    {
+        return view('Formularios.Configuraciones.CambioTelefono');
+    }
+        public function CambioEmail()
+    {
+        return view('Formularios.Configuraciones.CambioEmail');
+    }
 }

@@ -267,7 +267,15 @@
             </ul>
           </li>
           @endif
-
+          <li class="nav-item has-treeview">
+            <a href="{{url('Configuraciones')}}" class="nav-link ">
+              <i class="nav-icon fas fa-tools"></i>
+              <p>
+                Configuraciones
+               
+              </p>
+            </a>
+           </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

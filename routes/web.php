@@ -55,6 +55,8 @@ Route::group(['middleware' => ['Sesion']], function () {
 	Route::get('Formularios/SelectTipoBusqueda/{busqueda}','FormulariosController@SelectTipoBusqueda');
 	Route::get('Formularios/PagoAzteca','FormulariosController@PagoAzteca');
 	Route::get('Formularios/ImgPago/{id}','FormulariosController@ImgPago');
+	Route::get('Formularios/CambioTelefono','FormulariosController@CambioTelefono');
+	Route::get('Formularios/CambioEmail','FormulariosController@CambioEmail');
 
 	Route::get('Cartas','CartasController@index');
 	Route::post('Cartas/Registro','CartasController@Registro');
@@ -75,6 +77,9 @@ Route::group(['middleware' => ['Sesion']], function () {
 	Route::get('Membresia','MembresiasController@index');
 	Route::get('Membresia/FormasPago','MembresiasController@FormasPago');
 	Route::post('Membresia/GuardarPago','MembresiasController@GuardarPago');
+	Route::get('Configuraciones','ConfiguracionesController@index');
+	Route::post('Configuraciones/CambioTelefono','ConfiguracionesController@CambioTelefono');
+	Route::post('Configuraciones/CambioEmail','ConfiguracionesController@CambioEmail');
 });
 Route::get('Membresia/ValidarPago/{id}','MembresiasController@ValidarPago');
 Route::get('Membresia/PagoAutorizar/{id}','MembresiasController@PagoAutorizar');

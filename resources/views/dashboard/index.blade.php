@@ -2,7 +2,7 @@
 @section('contend')
   <div class="alert alert-info alert-dismissible">
                  
-                  <h5><i class="icon fas fa-tachometer-alt"></i> Mi Dashboard</h5>
+                  <h5><i class="icon fas fa-tachometer-alt"></i>Dashboard Personal</h5>
                  
   </div>
 <div class="row">
@@ -27,9 +27,9 @@
   }
  .inner p{
   position: absolute;
-  font-size: 13px;
+  font-size: 14px;
   text-align: left;
-  margin-top: 10px;
+  margin-top: 15px;
  }
  .small-box{
   height: 100px;
@@ -70,7 +70,7 @@
 </div>
   <div class="alert bg-maroon alert-dismissible">
                  
-                  <h5><i class="icon fas fa-tachometer-alt"></i>Dashboard de Sucursal</h5>
+                  <h5><i class="icon fas fa-tachometer-alt"></i>Dashboard Sucursal</h5>
                  
   </div>
 <div class="row">
@@ -99,7 +99,7 @@
               </div>
                 <h3>{{$clientesSucursalCount}}</h3>
 
-                <p>Clientes Sucursal</p>
+                <p>Clientes de Sucursal</p>
               </div>
               
              
