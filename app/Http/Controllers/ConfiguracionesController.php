@@ -19,11 +19,27 @@ class ConfiguracionesController extends Controller
     	$empleado->save();
     	return redirect('Configuraciones');
     }
-        public function CambioEmail(Request $request)
+    public function CambioEmail(Request $request)
     {
     	$empleado           =     Empleado::find(Auth::user()->id);
     	$empleado->email    =     $request['Email'];
     	$empleado->save();
     	return redirect('Configuraciones');
+    }
+    public function CambioNip(Request $request)
+    {	
+
+    	if($request['NipNew'] == $request['NipRepite'])
+    	{
+    		$empleado              =     Empleado::find(Auth::user()->id);
+    	    $empleado->password    =     bcrypt($request['NipNew']);
+    	    $empleado->save();	
+    	}
+    	
+    	return redirect('Configuraciones');
+    }
+    public function TipoCarta(Request $request)
+    {
+    	
     }
 }

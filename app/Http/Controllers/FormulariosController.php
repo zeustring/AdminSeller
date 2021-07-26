@@ -140,8 +140,18 @@ class FormulariosController extends Controller
     {
         return view('Formularios.Configuraciones.CambioTelefono');
     }
-        public function CambioEmail()
+    public function CambioEmail()
     {
         return view('Formularios.Configuraciones.CambioEmail');
     }
+    public function CambioNip()
+    {
+        return view('Formularios.Configuraciones.CambioNip');
+    }
+    public function TipoCarta()
+    {
+        $TipoCarta        =      TipoCarta::all();
+        return view('Formularios.Configuraciones.TipoCarta',['TipoCarta' => $TipoCarta]);
+    }
+
 }

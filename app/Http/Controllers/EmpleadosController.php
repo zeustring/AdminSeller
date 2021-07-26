@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Empleado;
+use App\Membresia;
+use App\CartaPredefinida;
 use DB;
 class EmpleadosController extends Controller
 {
@@ -36,7 +38,7 @@ class EmpleadosController extends Controller
     	}
         $empleado                 =  Empleado::all()->last();
 
-        $membrecia                =  new Membresia;
+        $membresia                =  new Membresia;
         $membresia->id_empleado   =  $empleado->id;
         $membresia->id_estatus    =  2;
         $membresia->save();
@@ -44,7 +46,7 @@ class EmpleadosController extends Controller
         $CartaPre                 =  new CartaPredefinida;
         $CartaPre->id_empleado    =  $empleado->id; 
         $CartaPre->id_tipo_carta  =  1;
-        $carta->save();
+        $CartaPre->save();
         
     	return redirect('Empleados');
     }

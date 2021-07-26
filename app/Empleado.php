@@ -20,7 +20,8 @@ class Empleado extends Authenticatable
                              'id_sucursal',
                              'id_estatus',
                              'id_jerarquia',
-                             'id_canal'
+                             'id_canal',
+                             'id_promotor_marca'
                              ];
 
    
@@ -40,6 +41,10 @@ class Empleado extends Authenticatable
     public function canal()
     {
         return $this->belongsTo('App\Canal','id_canal');
+    }
+    public function promotorMarca()
+    {
+        return $this->belongsTo('App\PromotorMarca','id_promotor_marca');
     }
   
 
