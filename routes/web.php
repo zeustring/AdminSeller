@@ -42,6 +42,7 @@ Route::group(['middleware' => ['Sesion']], function () {
 
 	Route::get('Formularios/SucursalRegistro','FormulariosController@SucursalRegistro');
 	Route::get('Formularios/EmpleadoRegistro','FormulariosController@EmpleadoRegistro');
+	Route::get('Formularios/EmpleadoEditar/{id}','FormulariosController@EmpleadoEditar');
 	Route::get('Formularios/Estados','FormulariosController@EstadosFormulario');
 	Route::get('Formularios/Ciudades','FormulariosController@CiudadesFormulario');
 	Route::get('Formularios/Colonias','FormulariosController@ColoniasFormulario');
@@ -58,6 +59,7 @@ Route::group(['middleware' => ['Sesion']], function () {
 	Route::get('Formularios/CambioTelefono','FormulariosController@CambioTelefono');
 	Route::get('Formularios/CambioEmail','FormulariosController@CambioEmail');
 	Route::get('Formularios/CambioNip','FormulariosController@CambioNip');
+	Route::get('Formularios/CartaPredefinida','FormulariosController@CartaPredefinida');
 	Route::get('Formularios/TipoCarta','FormulariosController@TipoCarta');
 
 	Route::get('Cartas','CartasController@index');
@@ -68,6 +70,7 @@ Route::group(['middleware' => ['Sesion']], function () {
 
 	Route::get('Empleados','EmpleadosController@index');
 	Route::post('Empleados/Registro','EmpleadosController@Registro');
+	Route::post('Empleados/Editar','EmpleadosController@Editar');
 
 	Route::get('MisClientes','MisClientesController@index');
 	Route::post('Clientes/Registro','MisClientesController@Registro');

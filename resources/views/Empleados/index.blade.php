@@ -8,7 +8,7 @@
                         data-toggle="modal" 
                         data-target="#modal-lg"
                         id="EmpleadoRegistro"> 
-                        <i class="fas fa-store-alt"></i>
+                        <i class="fas fa-users"></i>
                         Nuevo
                 </button>
               </div>
@@ -29,7 +29,12 @@
                   	<th >
                   	 Sucursal
                   	</th>
-                  	
+                    <th >
+                     Canal
+                    </th>
+                  	<th >
+                     Marca
+                    </th>
                   	<th >
                   	 Opiones
                   	</th>
@@ -42,10 +47,14 @@
                     <td>{{$row->no_empleado}}</td>
                     <td>{{$row->nombre}} {{$row->apellido_pa}} {{$row->apellido_ma}}</td>
                     <td>{{$row->sucursal->no_sucursal}} {{$row->sucursal->nombre}}</td>
-                   
+                    <td>{{$row->canal->nombre}} </td>
+                     <td>{{$row->promotorMarca->nombre}}</td>
                     <td>
                       <center>
-                        <button class="btn btn-success btn-xs">
+                        <button class="btn btn-success btn-xs EditarEmpleado"
+                                data-toggle="modal" 
+                                data-target="#modal-lg"
+                                id="{{$row->id}}">
                           <i class="fas fa-edit"></i>
                         </button>
                         <button class="btn btn-info btn-xs">
@@ -74,11 +83,29 @@
                 
                  $("#EmpleadoRegistro").click(function(){
                             
-                            var urls       =  "<?php echo url('Formularios/EmpleadoRegistro')  ?>";
+                            var urls       =  "<?php echo url('Formularios/EmpleadoRegistro');  ?>";
                               $("#RespuestaModal").css('display','none');
                              $.ajax({
                                       type: "GET",
                                       url: urls,
+                                      dataType: "html",
+                                      
+                                      error: function(){
+                                            alert("error petición actualize o cantacte al programador");
+                                      },
+                                      success: function(data){
+                                       $("#RespuestaModal").css('display','block');
+                                       $("#RespuestaModal").html(data);
+                                }
+                          });
+                  });
+                 $(".EditarEmpleado").click(function(){
+                            var id         =  $(this).attr('id');
+                            var urls       =  "<?php echo url('Formularios/EmpleadoEditar');  ?>";
+                              $("#RespuestaModal").css('display','none');
+                             $.ajax({
+                                      type: "GET",
+                                      url: urls+'/'+id,
                                       dataType: "html",
                                       
                                       error: function(){

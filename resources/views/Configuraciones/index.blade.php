@@ -77,17 +77,16 @@
   </div>
 <div class="row">
 
-
 <div class="col-lg-2 col-4">
             
                 <a class="btn btn-app bg-purple"
                    data-toggle="modal" 
                    data-target="#modal-lg"
                    id="CartaPredefinida">
-                  <i class="fas fa-envelope-open-text"></i> Tipo Carta
+                  <i class="fas fa-envelope-open-text"></i> Carta Predefinida
                 </a>
 </div>
-
+<!--
 <div class="col-lg-2 col-4">
             
                 <a class="btn btn-app bg-danger"
@@ -98,8 +97,7 @@
                 </a>
 </div>
 
-           
-
+-->
            
            
 
@@ -148,6 +146,24 @@
                   $("#CambioNip").click(function(){
                             
                             var urls       =  "<?php echo url('Formularios/CambioNip')  ?>";
+                            $("#RespuestaModal").css('display','none');
+                             $.ajax({
+                                      type: "GET",
+                                      url: urls,
+                                      dataType: "html",
+                                      
+                                      error: function(){
+                                            alert("error petición actualize o cantacte al programador");
+                                      },
+                                      success: function(data){
+                                        $("#RespuestaModal").css('display','block');
+                                       $("#RespuestaModal").html(data);
+                                }
+                          });
+                  });
+                  $("#CartaPredefinida").click(function(){
+                            
+                            var urls       =  "<?php echo url('Formularios/CartaPredefinida')  ?>";
                             $("#RespuestaModal").css('display','none');
                              $.ajax({
                                       type: "GET",

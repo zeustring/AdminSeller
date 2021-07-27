@@ -44,6 +44,20 @@
 
                     </select>
               </div>
+               <div class="form-group">
+                    <label >Promotor Marca</label>
+                    <select name="IdPromotorMarca" class="form-control " id="IdPromotorMarca">
+                      <option value="0">------</option>
+                      @foreach($promotorMarca as $row)
+                         @if($row->id == 1)
+                           <option value="{{$row->id}}">Elektra</option>
+                         @else
+                         <option value="{{$row->id}}">{{$row->nombre}}</option>
+                         @endif
+                      @endforeach
+
+                    </select>
+              </div>
               <div class="form-group">
                     <label >Sucursal</label>
                     <select name="IdSucursal" class="form-control " id="IdSucursal">

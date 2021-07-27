@@ -85,8 +85,11 @@
               </div>
               <div class="form-group">
                 <label>Tipo de Carta : </label><br>
-                     {{$CartaPred->tipoCarta->canal->nombre}} / {{$CartaPred->tipoCarta->nombre}}
-
+                {{$CartaPred->tipoCarta->canal->nombre}} /
+                    <b style="color:orange">
+                        {{$CartaPred->tipoCarta->nombre}}
+                    </b> 
+        <!--
                   <button class="btn btn-warning"
                           type="button" 
                           id="OtraCiudad" 
@@ -96,7 +99,7 @@
                                  float: right ">
                           <i class="fa fa-list"></i> Otra
                   </button>
-                
+        -->       
               </div>
               <div class="form-group">
                 <center>

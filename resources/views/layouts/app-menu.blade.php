@@ -134,7 +134,9 @@
         </div>
         <br>
         <div class="texto-user">
-          <label>{{Auth::user()->canal->nombre}} <b style="color:orange">{{Auth::user()->promotorMarca->nombre}} </b> </label><br>
+          <label>{{Auth::user()->canal->nombre}}
+          <b style="color:orange">{{Auth::user()->promotorMarca->nombre}} </b>
+           </label><br>
           <label>{{Auth::user()->sucursal->nombre}}</label><br>
           <label>{{Auth::user()->jerarquia->nombre}}</label><br>
           <label>{{Auth::user()->nombre}}</label><br>

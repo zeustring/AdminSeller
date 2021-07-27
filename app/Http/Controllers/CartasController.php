@@ -37,7 +37,7 @@ class CartasController extends Controller
    		$carta->id_sucursal      =       Auth::user()->id_sucursal;
    		$carta->monto            =       $request['Monto'];
    		$carta->id_canal         =       2;
-   		$carta->id_tipo_carta    =       1;
+   		$carta->id_tipo_carta    =       Auth::user()->id_promotor_marca;
    		$carta->id_estatus       =       4;
    		$carta->save();
 

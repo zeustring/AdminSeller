@@ -177,7 +177,9 @@ margin-bottom:60px;
 			Folio: <?php echo $carta->folio ; ?> <br>
 			CU   : <?php echo $carta->cu1."-".$carta->cu2."-".$carta->cu3."-".$carta->cu4 ; ?>
 		</div>
-		<div class="banco"><img src="{{url($tipo_carta->img_izq_sup)}}" width="260"></div>
+		<div class="banco">
+		        <img src="<?php echo $tipo_carta->img_izq_sup; ?>"  width="260">
+		 </div>
 		<div class="felicidades">¡¡Felicidades!!</div>
 		<div class="nombre">Nombre:
 			    <b class="text-resaltado">
@@ -203,7 +205,7 @@ margin-bottom:60px;
 				<b>Recuerda solo en tu Sucursal {{$carta->sucursal}}</b>
 		</div>
 		<div class="elektra-marca-agua">
-			<center><img src="{{url($tipo_carta->img_fondo)}}"></center>
+			<center><img src="<?php echo $tipo_carta->img_fondo; ?> " width=500></center>
 		</div>
 		<br><br>
 		<div class="cupon-margen">
@@ -236,7 +238,7 @@ margin-bottom:60px;
 		</div>
 		<br>
 		<div class="imagenes-carta">
-		<center>	<img src="{{url($tipo_carta->img_inf_1)}}" width="220"></center>
+		<center><img src="<?php echo $tipo_carta->img_inf_1; ?> " width='200px'></center>
 			
 
 		</div>

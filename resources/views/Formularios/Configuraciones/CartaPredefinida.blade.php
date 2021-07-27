@@ -1,5 +1,5 @@
 <div class="modal-header bg-info">
-              <h4 class="modal-title"> <i class="fa fa-user"></i> Actualizar NIP </h4>
+              <h4 class="modal-title"> <i class="fa fa-user"></i> Carta Predefinida </h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
               </button>
@@ -13,7 +13,9 @@
               
               <div class="form-group">
                    <select class="form-control" name="TipoCarta">
-                     @foreach($TipoCarta as $row)
+                    
+
+                     @foreach($TipoCartas as $row)
                      <option value="{{$row->id}}">{{$row->nombre}}</option>
                      @endforeach
                    </select> 

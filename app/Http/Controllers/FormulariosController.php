@@ -14,6 +14,9 @@ use App\Canal;
 use App\Carta;
 use App\CartaPredefinida;
 use App\PagoMembresia;
+use App\Empleado;
+use App\PromotorMarca;
+use App\TipoCarta;
 use Auth;
 use DB;
 class FormulariosController extends Controller
@@ -57,12 +60,26 @@ class FormulariosController extends Controller
 
     public function EmpleadoRegistro()
     {
-        $sucursales   =    Sucursal::all();
-        $jerarquias   =    Jerarquia::all();
-        $canal        =    Canal::all();
-        return view('Formularios.EmpleadoRegistro',['sucursales'  => $sucursales,
-                                                    'jerarquias'  => $jerarquias,
+        $sucursales               =    Sucursal::all();
+        $jerarquias               =    Jerarquia::all();
+        $canal                    =    Canal::all();
+        $promotorMarca            =    PromotorMarca::all();
+        return view('Formularios.EmpleadoRegistro',['promotorMarca' => $promotorMarca,
+                                                    'sucursales'    => $sucursales,
+                                                    'jerarquias'    => $jerarquias,
                                                     'canales'       => $canal]);
+    }
+    public function EmpleadoEditar($id)
+    {   $sucursales               =    Sucursal::all();
+        $jerarquias               =    Jerarquia::all();
+        $canales                  =    Canal::all();
+        $empleado                 =    Empleado::find($id);
+        $promotorMarca            =    PromotorMarca::all();
+        return view('Formularios.EmpleadoEditar',['promotorMarca'         => $promotorMarca,
+                                                  'empleado'              => $empleado,
+                                                  'sucursales'            => $sucursales,
+                                                  'jerarquias'            => $jerarquias,
+                                                  'canales'               => $canales]);
     }
     public function ClientesRegistro()
     {   $sucursal   =     Sucursal::where('id','=',Auth::user()->id_sucursal)->first();
@@ -148,10 +165,14 @@ class FormulariosController extends Controller
     {
         return view('Formularios.Configuraciones.CambioNip');
     }
-    public function TipoCarta()
-    {
-        $TipoCarta        =      TipoCarta::all();
-        return view('Formularios.Configuraciones.TipoCarta',['TipoCarta' => $TipoCarta]);
+    public function CartaPredefinida()
+    {   $CartaPredefinida        =      CartaPredefinida::where('id_empleado','=',Auth::user()->id);
+        $TipoCarta               =      TipoCarta::where('id_canal','=',Auth::user()->id_canal)->get();
+        return view('Formularios.Configuraciones.CartaPredefinida',
+                                               ['CartaPredefinida' => $CartaPredefinida,
+                                                'TipoCartas'       => $TipoCarta]);
+
     }
+
 
 }
