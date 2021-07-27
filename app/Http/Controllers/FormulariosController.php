@@ -29,6 +29,16 @@ class FormulariosController extends Controller
                                                   'ciudades' => $ciudades,
                                                   'colonias' => $colonias]);
     }
+    public function SucursalEditar($id)
+    {   $colonias      =    Colonia::all();
+        $estados       =    Estado::all();
+        $ciudades      =    Ciudad::all();
+        $sucursal      =    Sucursal::find($id);
+        return view('Formularios.SucursalEditar',['estados'  => $estados,
+                                                    'ciudades' => $ciudades,
+                                                    'colonias' => $colonias,
+                                                    'sucursal' => $sucursal]);
+    }
 
     public function Municipios($idEstado)
     {

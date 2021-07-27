@@ -36,4 +36,19 @@ class SucursalesController extends Controller
 
     	return redirect('Sucursales');
     }
+    public function Editar(Request $request)
+    {
+        $sucursal                =    Sucursal::find( $request['IdSucursal']);
+        $sucursal->no_sucursal   =    $request['NoSucursal'];
+        $sucursal->nombre        =    $request['NombreSucursal'];
+        $sucursal->calle         =    $request['Calle'];
+        $sucursal->referencias   =    $request['Referencias'];
+        $sucursal->no_exterior   =    $request['NoExterior'];
+        $sucursal->id_colonia    =    $request['IdColonia'];
+        $sucursal->id_ciudad     =    $request['IdCiudad'];
+        $sucursal->id_estado     =    $request['IdEstado'];
+        $sucursal->save();
+
+        return redirect('Sucursales');
+    }
 }

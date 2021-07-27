@@ -39,8 +39,10 @@ Route::group(['middleware' => ['Sesion']], function () {
 
 	Route::get('Sucursales','SucursalesController@index');
 	Route::post('Sucursales/Registro','SucursalesController@Registro');
+	Route::post('Sucursales/Editar','SucursalesController@Editar');
 
 	Route::get('Formularios/SucursalRegistro','FormulariosController@SucursalRegistro');
+	Route::get('Formularios/SucursalEditar/{id}','FormulariosController@SucursalEditar');
 	Route::get('Formularios/EmpleadoRegistro','FormulariosController@EmpleadoRegistro');
 	Route::get('Formularios/EmpleadoEditar/{id}','FormulariosController@EmpleadoEditar');
 	Route::get('Formularios/Estados','FormulariosController@EstadosFormulario');

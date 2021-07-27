@@ -47,7 +47,10 @@
                         {{$row->ciudad->nombre}}
                     </td>
                     <td>
-                      <button class="btn btn-success btn-xs">
+                      <button class="btn btn-success btn-xs SucursalEditar"
+                               data-toggle="modal" 
+                               data-target="#modal-lg"
+                               id="{{$row->id}}">
                         <i class="fas fa-edit"></i>
                       </button>
                       <button class="btn btn-info btn-xs">
@@ -78,6 +81,24 @@
                              $.ajax({
                                       type: "GET",
                                       url: urls,
+                                      dataType: "html",
+                                      
+                                      error: function(){
+                                            alert("error petición actualize o cantacte al programador");
+                                      },
+                                      success: function(data){
+                                        $("#RespuestaModal").css('display','block');
+                                       $("#RespuestaModal").html(data);
+                                }
+                          });
+                  });
+                  $(".SucursalEditar").click(function(){
+                             var id         =  $(this).attr('id');
+                            var urls       =  "<?php echo url('Formularios/SucursalEditar')  ?>";
+                            $("#RespuestaModal").css('display','none');
+                             $.ajax({
+                                      type: "GET",
+                                      url: urls+'/'+id,
                                       dataType: "html",
                                       
                                       error: function(){
