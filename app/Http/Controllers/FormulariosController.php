@@ -59,13 +59,22 @@ class FormulariosController extends Controller
         $estados   =   Estado::all();
         return view('Formularios.CiudadesRegistro',['estados'=> $estados]);
     }
-
-    public function ColoniasFormulario()
+        public function ColoniasRegistrar()
     {
         $estados   =   Estado::all();
         $ciudades  =   Ciudad::all();
-        return view('Formularios.ColoniasRegistro',['estados'=> $estados,
-                                                    'ciudades'=> $ciudades]);
+        return view('Formularios.ColoniasRegistro',['estados'  => $estados,
+                                                  'ciudades' => $ciudades]);
+    }
+
+    public function ColoniasEditar($id)
+    {
+        $estados   =   Estado::all();
+        $ciudades  =   Ciudad::all();
+        $colonia   =   Colonia::find($id);
+        return view('Formularios.ColoniasEditar',['estados'  => $estados,
+                                                  'ciudades' => $ciudades,
+                                                  'colonia'  => $colonia]);
     }
 
     public function EmpleadoRegistro()

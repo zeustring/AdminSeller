@@ -40,7 +40,8 @@ class EntidadesController extends Controller
 
     public function Colonias()
     {
-    	$colonias     =    Colonia::all();
+    	$colonias     =    Colonia::orderBy('nombre','asc')
+                                     ->get();
     	
     	return view('Entidades.Colonias',['colonias' => $colonias]);
     }

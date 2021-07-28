@@ -65,8 +65,8 @@ align-items: center;
 	margin-top: -30px;
 	position: relative;
 	left: -20px; 
-	width: 550px;
-	height: 370px;
+	width: 700px;
+	height: 400px;
 	opacity: 0.3;
 	z-index: -1;
 }
@@ -205,7 +205,7 @@ margin-bottom:60px;
 				<b>Recuerda solo en tu Sucursal {{$carta->sucursal}}</b>
 		</div>
 		<div class="elektra-marca-agua">
-			<center><img src="<?php echo $tipo_carta->img_fondo; ?> " width=500></center>
+			<center><img src="<?php echo $tipo_carta->img_fondo; ?>" width="700"></center>
 		</div>
 		<br><br>
 		<div class="cupon-margen">
@@ -238,9 +238,13 @@ margin-bottom:60px;
 		</div>
 		<br>
 		<div class="imagenes-carta">
-		<center><img src="<?php echo $tipo_carta->img_inf_1; ?> " width='200px'></center>
-			
-
+		<?php if($carta->tipoCarta == 2)
+		       {
+		?>
+		<center><img src="<?php echo $tipo_carta->img_inf_1; ?>" width="250"></center>
+		<?php }else{ ?>	
+		<center><img src="<?php echo $tipo_carta->img_inf_1; ?>" width="220"></center>
+		<?php } ?>	
 		</div>
 	</div>
  <?php 

@@ -47,7 +47,8 @@ Route::group(['middleware' => ['Sesion']], function () {
 	Route::get('Formularios/EmpleadoEditar/{id}','FormulariosController@EmpleadoEditar');
 	Route::get('Formularios/Estados','FormulariosController@EstadosFormulario');
 	Route::get('Formularios/Ciudades','FormulariosController@CiudadesFormulario');
-	Route::get('Formularios/Colonias','FormulariosController@ColoniasFormulario');
+	Route::get('Formularios/ColoniasRegistrar','FormulariosController@ColoniasRegistrar');
+	Route::get('Formularios/ColoniasEditar/{id}','FormulariosController@ColoniasEditar');
 	Route::get('Formularios/ClientesRegistro','FormulariosController@ClientesRegistro');
 	Route::get('Formularios/OtraCiudad','FormulariosController@OtraCiudad');
 	Route::get('Formularios/OtrasColonias/{idCiudad}','FormulariosController@OtrasColonias');

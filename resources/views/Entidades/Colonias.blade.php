@@ -1,30 +1,18 @@
 @extends('layouts.app-menu')
 @section('contend')
     <div class="card">
-              <div class="card-header">
+             <div class="card-header">
                 <h3 class="card-title">Listado de Colonias</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-         
-          
-             
-              
-              <div id="col-sm-12 card-body table-responsive p-0" >
-               
-                <button class="btn btn-success" 
+                <button class="btn btn-success BotonModal" 
                         data-toggle="modal" 
                         data-target="#modal-lg"
-                        id="Colonia"> 
+                        id="ColoniasRegistrar"> 
                         <i class="fas fa-list"></i>
-                        Nuevo
+                       Nueva Colonia
                 </button>
-
-                <label >
-                 <input type="search" class="form-control" placeholder="Buscar" aria-controls="Buscar Tienda" style="width: 200px;">
-                </label>
-              
               </div>
+
+
              
          
          <div class="row">
@@ -36,10 +24,10 @@
                      Nombre
                     </th>
                     <th >
-                     Tiendas
+                     Ciudad
                     </th>
                     <th >
-                     Empleados
+                     Estado
                     </th>
                     <th >
                      Opiones
@@ -51,10 +39,15 @@
                   <tr role="row" class="odd">
                     
                     <td>{{$row->nombre}}</td>
-                    <td>2</td>
-                    <td>1</td>
+                    <td>{{$row->ciudad->nombre}}</td>
+                    <td>{{$row->estado->nombre}}</td>
                     <td>
-                      <button class="btn btn-success btn-xs">Editar</button>
+                      <button class="btn btn-success btn-xs ColoniasEditar"
+                                data-toggle="modal" 
+                                data-target="#modal-lg"
+                                id="{{$row->id}}">
+                          <i class="fas fa-edit"></i>
+                      </button>
                         
                       
                     </td>
@@ -66,16 +59,14 @@
               </div></div>
               </div>
               
-              <!-- /.card-body -->
-  </div>
      
 <script type="text/javascript">
               $(document).ready(function(){
 
                 
-                 $("#Colonia").click(function(){
+                 $("#ColoniasRegistrar").click(function(){
                             
-                            var urls       =  "<?php echo url('Formularios/Colonias')  ?>";
+                            var urls       =  "<?php echo url('Formularios/ColoniasRegistrar')  ?>";
                             $("#RespuestaModal").css('display','none');
                              $.ajax({
                                       type: "GET",
@@ -87,6 +78,24 @@
                                       },
                                       success: function(data){
                                       $("#RespuestaModal").css('display','block');
+                                       $("#RespuestaModal").html(data);
+                                }
+                          });
+                  });
+                 $(".ColoniasEditar").click(function(){
+                            var id         =  $(this).attr('id');
+                            var urls       =  "<?php echo url('Formularios/ColoniasEditar');  ?>";
+                              $("#RespuestaModal").css('display','none');
+                             $.ajax({
+                                      type: "GET",
+                                      url: urls+'/'+id,
+                                      dataType: "html",
+                                      
+                                      error: function(){
+                                            alert("error petición actualize o cantacte al programador");
+                                      },
+                                      success: function(data){
+                                       $("#RespuestaModal").css('display','block');
                                        $("#RespuestaModal").html(data);
                                 }
                           });
