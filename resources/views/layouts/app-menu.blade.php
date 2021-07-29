@@ -34,6 +34,10 @@
     color: #d81b60;
     font-size: 16px;
   }
+  .Administrativo{
+    color: #14afc7;
+    font-size: 16px;
+  }
     .cu{
     margin-right: 15px;
     margin-left: 7px;
@@ -132,16 +136,16 @@
  
 
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar" style="margin-top:-15px;  padding: 0;">
       <!-- Sidebar user (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex" style="height:120px; width: 100%;">
         <div class="imagen-usuario" >
           <center>
-          <img src="{{ url('dist/img/user2-160x160.jpg')}}">
+          <img src="{{ url('dist/img/user2-160x160.jpg')}}" style="margin-top: 20px; margin-left: 10px;">
           </center>
         </div>
         <br>
-        <div class="texto-user">
+        <div class="texto-user"  >
           <div style="width:120%;
                       height: 100%;
                       background: #101010bf;
@@ -155,14 +159,14 @@
            <img src="{{url('imagen/'.Auth::user()->promotorMarca->nombre.'-fondo.png')}}" 
                  style="width: 130%;
                         position: absolute;
-                        filter: blur(4px) saturate(150%);
+                        filter: blur(3px) saturate(150%);
                         z-index: -3;
                         left: -0px;
                         margin-top: 0px;">
-          <label>
+          <label style="margin-top: 15px;">
           <b class="{{Auth::user()->promotorMarca->nombre}}">
             <img src="{{url('imagen/'.Auth::user()->promotorMarca->nombre.'.png')}}" 
-                 style="width: 20px;
+                 style="width: 25px;
                         margin-right: 2px;
                         margin-top: -5px;">
                  {{Auth::user()->promotorMarca->nombre}} </b>
