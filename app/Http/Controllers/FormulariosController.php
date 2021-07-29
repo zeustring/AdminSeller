@@ -50,20 +50,20 @@ class FormulariosController extends Controller
     	$colonias   =    Colonia::where('id_municipio','=',$idMunicipio)->get();
     	return view('Formularios.SelectColonia',['colonias'=>$colonias]);
     }
-    public function EstadosFormulario()
+    public function EstadosRegistro()
     {
-        return view('Formularios.EstadosRegistro');
+        return view('Formularios.Entidades.EstadosRegistro');
     }
     public function CiudadesFormulario()
     {
         $estados   =   Estado::all();
-        return view('Formularios.CiudadesRegistro',['estados'=> $estados]);
+        return view('Formularios.Entidades.CiudadesRegistro',['estados'=> $estados]);
     }
         public function ColoniasRegistrar()
     {
         $estados   =   Estado::all();
         $ciudades  =   Ciudad::all();
-        return view('Formularios.ColoniasRegistro',['estados'  => $estados,
+        return view('Formularios.Entidades.ColoniasRegistro',['estados'  => $estados,
                                                   'ciudades' => $ciudades]);
     }
 
@@ -72,11 +72,23 @@ class FormulariosController extends Controller
         $estados   =   Estado::all();
         $ciudades  =   Ciudad::all();
         $colonia   =   Colonia::find($id);
-        return view('Formularios.ColoniasEditar',['estados'  => $estados,
+        return view('Formularios.Entidades.ColoniasEditar',['estados'  => $estados,
                                                   'ciudades' => $ciudades,
                                                   'colonia'  => $colonia]);
     }
-
+    public function CiudadesEditar($id)
+    {
+        $estados   =   Estado::all();
+        $ciudad   =   Ciudad::find($id);
+        return view('Formularios.Entidades.CiudadesEditar',['estados'  => $estados,
+                                                            'ciudad'   => $ciudad]);
+    }
+    public function EstadosEditar($id)
+    {
+          
+        $estado   =    Estado::find($id);
+        return view('Formularios.Entidades.EstadosEditar',['estado'  => $estado]);
+    }
     public function EmpleadoRegistro()
     {
         $sucursales               =    Sucursal::all();

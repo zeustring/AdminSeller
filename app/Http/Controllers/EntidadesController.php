@@ -21,7 +21,13 @@ class EntidadesController extends Controller
     	$estado->save();
     	return redirect('Entidades/Estados');
     }
-
+    public function EstadosEditar(Request $request)
+    {
+        $estado           =    Estado::find($request['IdEstado']);
+        $estado->nombre   =    $request['nombre'];
+        $estado->save();
+        return redirect('Entidades/Estados');
+    }
     public function Ciudades()
     {
     	$ciudades     =    Ciudad::all();
@@ -37,12 +43,18 @@ class EntidadesController extends Controller
     	$ciudades->save();
     	return redirect('Entidades/Ciudades');
     }
-
+    public function CiudadesEditar(Request $request)
+    {
+        $ciudades            =    Ciudad::find($request['IdCiudad']);
+        $ciudades->nombre    =    $request['Nombre'];
+        $ciudades->id_estado =    $request['IdEstado'];
+        $ciudades->save();
+        return redirect('Entidades/Ciudades');
+    }
     public function Colonias()
     {
     	$colonias     =    Colonia::orderBy('nombre','asc')
                                      ->get();
-    	
     	return view('Entidades.Colonias',['colonias' => $colonias]);
     }
 
@@ -55,4 +67,14 @@ class EntidadesController extends Controller
     	$colonias->save();
     	return redirect('Entidades/Colonias');
     }
+    public function ColoniasEditar(Request $request)
+    {
+        $colonias            =    Colonia::find($request['IdColonia']);
+        $colonias->nombre    =    $request['Nombre'];
+        $colonias->id_ciudad =    $request['IdCiudad'];
+        $colonias->id_estado =    $request['IdEstado'];
+        $colonias->save();
+        return redirect('Entidades/Colonias');
+    }
+
 }

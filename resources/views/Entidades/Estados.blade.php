@@ -1,31 +1,16 @@
 @extends('layouts.app-menu')
 @section('contend')
     <div class="card">
-              <div class="card-header">
+             <div class="card-header">
                 <h3 class="card-title">Listado de Estados</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-         
-          
-             
-              
-              <div id="col-sm-12 card-body table-responsive p-0" >
-               
-                <button class="btn btn-success" 
+                <button class="btn btn-success BotonModal" 
                         data-toggle="modal" 
                         data-target="#modal-lg"
-                        id="Estado"> 
+                        id="EstadoRegistro"> 
                         <i class="fas fa-list"></i>
-                        Nuevo
+                       Nuevo Estado
                 </button>
-
-                <label >
-                 <input type="search" class="form-control" placeholder="Buscar" aria-controls="Buscar Tienda" style="width: 200px;">
-                </label>
-              
               </div>
-             
          
          <div class="row">
           <div class="col-sm-12 card-body table-responsive p-0">
@@ -35,12 +20,7 @@
                     <th >
                      Nombre
                     </th>
-                    <th >
-                     Tiendas
-                    </th>
-                    <th >
-                     Empleados
-                    </th>
+                    
                     <th >
                      Opiones
                     </th>
@@ -51,12 +31,14 @@
                   <tr role="row" class="odd">
                     
                     <td>{{$row->nombre}}</td>
-                    <td>2</td>
-                    <td>1</td>
+                    
                     <td>
-                      <button class="btn btn-success btn-xs">Editar</button>
-                        
-                      
+                      <button class="btn btn-success btn-xs EstadosEditar"
+                                data-toggle="modal" 
+                                data-target="#modal-lg"
+                                id="{{$row->id}}">
+                          <i class="fas fa-edit"></i>
+                      </button>
                     </td>
                   </tr>
                   @endforeach
@@ -65,21 +47,37 @@
                 </table>
               </div></div>
               </div>
-              
-              <!-- /.card-body -->
-  </div>
+
      
 <script type="text/javascript">
               $(document).ready(function(){
 
                 
-                 $("#Estado").click(function(){
+                 $("#EstadoRegistro").click(function(){
                             
-                            var urls       =  "<?php echo url('Formularios/Estados')  ?>";
+                            var urls       =  "<?php echo url('Formularios/EstadosRegistro')  ?>";
                             $("#RespuestaModal").css('display','none');
                              $.ajax({
                                       type: "GET",
                                       url: urls,
+                                      dataType: "html",
+                                      
+                                      error: function(){
+                                            alert("error petición actualize o cantacte al programador");
+                                      },
+                                      success: function(data){
+                                       $("#RespuestaModal").css('display','block');
+                                       $("#RespuestaModal").html(data);
+                                }
+                          });
+                  });
+                  $(".EstadosEditar").click(function(){
+                            var id         =  $(this).attr('id');
+                            var urls       =  "<?php echo url('Formularios/EstadosEditar');  ?>";
+                              $("#RespuestaModal").css('display','none');
+                             $.ajax({
+                                      type: "GET",
+                                      url: urls+'/'+id,
                                       dataType: "html",
                                       
                                       error: function(){

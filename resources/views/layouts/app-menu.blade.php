@@ -26,6 +26,14 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <style type="text/css">
+  .Realme{
+    color: orange;
+    font-size: 16px;
+  }
+  .Elektra{
+    color: #d81b60;
+    font-size: 16px;
+  }
     .cu{
     margin-right: 15px;
     margin-left: 7px;
@@ -134,8 +142,13 @@
         </div>
         <br>
         <div class="texto-user">
-          <label>{{Auth::user()->canal->nombre}}
-          <b style="color:orange">{{Auth::user()->promotorMarca->nombre}} </b>
+          <label>
+          <b class="{{Auth::user()->promotorMarca->nombre}}">
+            <img src="{{url('imagen/'.Auth::user()->promotorMarca->nombre.'.png')}}" 
+                 style="width: 20px;
+                        margin-right: 2px;
+                        margin-top: -5px;">
+                 {{Auth::user()->promotorMarca->nombre}} </b>
            </label><br>
           <label>{{Auth::user()->sucursal->nombre}}</label><br>
           <label>{{Auth::user()->jerarquia->nombre}}</label><br>

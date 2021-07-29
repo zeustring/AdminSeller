@@ -3,30 +3,14 @@
     <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Listado de Ciudades</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-         
-          
-             
-              
-              <div id="example1_filter card-body table-responsive p-0" >
-               
-                <button class="btn btn-success" 
+                <button class="btn btn-success BotonModal" 
                         data-toggle="modal" 
                         data-target="#modal-lg"
-                        id="Ciudad"> 
+                        id="CiudadesRegistrar"> 
                         <i class="fas fa-list"></i>
-                      Nuevo
+                       Nueva Ciudad
                 </button>
-                
-              
-                <label >
-                 <input type="search" class="form-control" placeholder="Buscar" aria-controls="Buscar Tienda" style="width: 200px;">
-                </label>
-              
               </div>
-             
          
          <div class="row">
           <div class="col-sm-12 card-body table-responsive p-0">
@@ -37,11 +21,9 @@
                      Nombre
                     </th>
                     <th >
-                     Tiendas
+                     Estado
                     </th>
-                    <th >
-                     Empleados
-                    </th>
+                   
                     <th >
                      Opiones
                     </th>
@@ -52,10 +34,15 @@
                   <tr role="row" class="odd">
                     
                     <td>{{$row->nombre}}</td>
-                    <td>2</td>
-                    <td>1</td>
+                    <td>{{$row->estado->nombre}}</td>
+                    
                     <td>
-                      <button class="btn btn-success btn-xs">Editar</button>
+                    <button class="btn btn-success btn-xs CiudadesEditar"
+                                data-toggle="modal" 
+                                data-target="#modal-lg"
+                                id="{{$row->id}}">
+                          <i class="fas fa-edit"></i>
+                    </button>
                         
                       
                     </td>
@@ -66,22 +53,37 @@
                 </table>
               </div></div>
               </div>
-              
-              <!-- /.card-body -->
-  </div>
 
      
 <script type="text/javascript">
               $(document).ready(function(){
 
                 
-                 $("#Ciudad").click(function(){
+                 $("#CiudadesRegistrar").click(function(){
                             
                             var urls       =  "<?php echo url('Formularios/Ciudades')  ?>";
                             $("#RespuestaModal").css('display','none');
                              $.ajax({
                                       type: "GET",
                                       url: urls,
+                                      dataType: "html",
+                                      
+                                      error: function(){
+                                            alert("error petición actualize o cantacte al programador");
+                                      },
+                                      success: function(data){
+                                       $("#RespuestaModal").css('display','block');
+                                       $("#RespuestaModal").html(data);
+                                }
+                          });
+                  });
+                 $(".CiudadesEditar").click(function(){
+                            var id         =  $(this).attr('id');
+                            var urls       =  "<?php echo url('Formularios/CiudadesEditar');  ?>";
+                              $("#RespuestaModal").css('display','none');
+                             $.ajax({
+                                      type: "GET",
+                                      url: urls+'/'+id,
                                       dataType: "html",
                                       
                                       error: function(){

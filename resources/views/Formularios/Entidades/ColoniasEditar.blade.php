@@ -13,7 +13,7 @@
 
               <div class="form-group">
                     <label >Nombre Colonia</label>
-                    <input type="text" class="form-control" id="Colonia" placeholder="Nombre Colonia" name="Colonia" autocomplete="off" value="{{$colonia->nombre}}">
+                    <input type="text" class="form-control" id="Colonia" placeholder="Nombre Colonia" name="Nombre" autocomplete="off" value="{{$colonia->nombre}}">
               </div>
               <div class="form-group">
                     <label >Ciudad</label>

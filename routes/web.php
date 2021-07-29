@@ -35,7 +35,9 @@ Route::group(['middleware' => ['Sesion']], function () {
 
 	Route::get('Entidades/Colonias','EntidadesController@Colonias');
 	Route::post('Entidades/Colonias/Registro','EntidadesController@ColoniasRegistro');
-
+	Route::post('Entidades/Colonias/Editar','EntidadesController@ColoniasEditar');
+	Route::post('Entidades/Ciudades/Editar','EntidadesController@CiudadesEditar');
+    Route::post('Entidades/Estados/Editar','EntidadesController@EstadosEditar');
 
 	Route::get('Sucursales','SucursalesController@index');
 	Route::post('Sucursales/Registro','SucursalesController@Registro');
@@ -45,10 +47,12 @@ Route::group(['middleware' => ['Sesion']], function () {
 	Route::get('Formularios/SucursalEditar/{id}','FormulariosController@SucursalEditar');
 	Route::get('Formularios/EmpleadoRegistro','FormulariosController@EmpleadoRegistro');
 	Route::get('Formularios/EmpleadoEditar/{id}','FormulariosController@EmpleadoEditar');
-	Route::get('Formularios/Estados','FormulariosController@EstadosFormulario');
+	Route::get('Formularios/EstadosRegistro','FormulariosController@EstadosRegistro');
 	Route::get('Formularios/Ciudades','FormulariosController@CiudadesFormulario');
 	Route::get('Formularios/ColoniasRegistrar','FormulariosController@ColoniasRegistrar');
 	Route::get('Formularios/ColoniasEditar/{id}','FormulariosController@ColoniasEditar');
+	Route::get('Formularios/CiudadesEditar/{id}','FormulariosController@CiudadesEditar');
+	Route::get('Formularios/EstadosEditar/{id}','FormulariosController@EstadosEditar');
 	Route::get('Formularios/ClientesRegistro','FormulariosController@ClientesRegistro');
 	Route::get('Formularios/OtraCiudad','FormulariosController@OtraCiudad');
 	Route::get('Formularios/OtrasColonias/{idCiudad}','FormulariosController@OtrasColonias');
