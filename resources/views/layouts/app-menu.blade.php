@@ -141,7 +141,7 @@
       <div class="user-panel mt-3 pb-3 mb-3 d-flex" style="height:120px; width: 100%;">
         <div class="imagen-usuario" >
           <center>
-          <img src="{{ url('dist/img/user2-160x160.jpg')}}" style="margin-top: 20px; margin-left: 10px;">
+          <img src="{{ url('imagen/img-perfil/'.Auth::user()->no_empleado.'-perfil.png')}}" style="margin-top: 20px; margin-left: 10px;">
           </center>
         </div>
         <br>
