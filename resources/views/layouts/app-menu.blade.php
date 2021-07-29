@@ -142,6 +142,23 @@
         </div>
         <br>
         <div class="texto-user">
+          <div style="width:120%;
+                      height: 100%;
+                      background: #101010bf;
+                      z-index: -2;
+                      margin: 0;
+                      padding: 0;
+                      left: -0px;
+                      position: absolute;">
+                        
+                      </div>
+           <img src="{{url('imagen/'.Auth::user()->promotorMarca->nombre.'-fondo.png')}}" 
+                 style="width: 130%;
+                        position: absolute;
+                        filter: blur(4px) saturate(150%);
+                        z-index: -3;
+                        left: -0px;
+                        margin-top: 0px;">
           <label>
           <b class="{{Auth::user()->promotorMarca->nombre}}">
             <img src="{{url('imagen/'.Auth::user()->promotorMarca->nombre.'.png')}}" 
@@ -150,10 +167,10 @@
                         margin-top: -5px;">
                  {{Auth::user()->promotorMarca->nombre}} </b>
            </label><br>
-          <label>{{Auth::user()->sucursal->nombre}}</label><br>
-          <label>{{Auth::user()->jerarquia->nombre}}</label><br>
-          <label>{{Auth::user()->nombre}}</label><br>
-          <label>{{Auth::user()->no_empleado}}</label><br>
+          <label style="color: white;">{{Auth::user()->sucursal->nombre}}</label><br>
+          <label style="color: white;">{{Auth::user()->jerarquia->nombre}}</label><br>
+          <label style="color: white;">{{Auth::user()->nombre}}</label><br>
+          <label style="color: white;">{{Auth::user()->no_empleado}}</label><br>
           
         </div>
       </div>
