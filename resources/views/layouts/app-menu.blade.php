@@ -26,6 +26,14 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <style type="text/css">
+  .Telcel{
+     color: #0054ef;
+    font-size: 16px;
+  }
+  .azteca{
+    color: #3f876f;
+    font-size: 16px;
+  }
   .Realme{
     color: orange;
     font-size: 16px;
@@ -156,7 +164,7 @@
                       position: absolute;">
                         
                       </div>
-           <img src="{{url('imagen/'.Auth::user()->promotorMarca->nombre.'-fondo.png')}}" 
+           <img src="{{ url(Auth::user()->promotorMarca->img_fondo)}}" 
                  style="width: 130%;
                         position: absolute;
                         filter: blur(3px) saturate(150%);
@@ -164,8 +172,12 @@
                         left: -0px;
                         margin-top: 0px;">
           <label style="margin-top: 15px;">
+            @if(Auth::user()->promotorMarca->id == 5)
+            <b class="azteca">
+            @else
           <b class="{{Auth::user()->promotorMarca->nombre}}">
-            <img src="{{url('imagen/'.Auth::user()->promotorMarca->nombre.'.png')}}" 
+            @endif
+            <img src="{{ url(Auth::user()->promotorMarca->img_icono)}}" 
                  style="width: 25px;
                         margin-right: 2px;
                         margin-top: -5px;">
@@ -224,15 +236,7 @@
            </li>
         @endif
         @if(Auth::user()->id_jerarquia <= 2)
-          <li class="nav-item has-treeview">
-            <a href="{{url('Sucursales')}}" class="nav-link ">
-              <i class="nav-icon fas fa-store-alt"></i>
-              <p>
-                Sucursales
-               
-              </p>
-            </a>
-           </li>
+
           <li class="nav-item has-treeview">
             <a href="{{url('Empleados')}}" class="nav-link ">
               <i class="nav-icon fas fa-users"></i>
@@ -273,6 +277,23 @@
           
             </ul>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="{{url('PromotorMarca')}}" class="nav-link ">
+              <i class="nav-icon fas fa-project-diagram"></i>
+              <p>
+                Promotor Marca
+              </p>
+            </a>
+           </li>
+           <li class="nav-item has-treeview">
+            <a href="{{url('Sucursales')}}" class="nav-link ">
+              <i class="nav-icon fas fa-store-alt"></i>
+              <p>
+                Sucursales
+               
+              </p>
+            </a>
+           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-list"></i>

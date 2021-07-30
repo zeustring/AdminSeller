@@ -69,6 +69,9 @@ Route::group(['middleware' => ['Sesion']], function () {
 	Route::get('Formularios/CartaPredefinida','FormulariosController@CartaPredefinida');
 	Route::get('Formularios/TipoCarta','FormulariosController@TipoCarta');
 
+	Route::get('Formularios/PromotorMarcaRegistro','FormulariosController@PromotorMarcaRegistro');
+	Route::get('Formularios/PromotorMarcaEditar/{id}','FormulariosController@PromotorMarcaEditar');
+
 	Route::get('Cartas','CartasController@index');
 	Route::post('Cartas/Registro','CartasController@Registro');
 	Route::post('Cartas/GenerarCartas/','CartasController@GenerarCartas');
@@ -94,6 +97,10 @@ Route::group(['middleware' => ['Sesion']], function () {
 	Route::post('Configuraciones/CambioEmail','ConfiguracionesController@CambioEmail');
 	Route::post('Configuraciones/CambioNip','ConfiguracionesController@CambioNip');
 	Route::post('Configuraciones/TipoCarta','ConfiguracionesController@TipoCarta');
+
+	Route::get('PromotorMarca','PromotorMarcaController@index');
+	Route::post('PromotorMarca/Registro','PromotorMarcaController@Registro');
+	Route::post('PromotorMarca/Editar/{id}','PromotorMarcaController@Editar');
 });
 Route::get('Membresia/ValidarPago/{id}','MembresiasController@ValidarPago');
 Route::get('Membresia/PagoAutorizar/{id}','MembresiasController@PagoAutorizar');

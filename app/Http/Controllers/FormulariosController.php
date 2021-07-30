@@ -205,5 +205,11 @@ class FormulariosController extends Controller
 
     }
 
+    public function PromotorMarcaRegistro()
+    {
+        $canales      =       Canal::orderBy('nombre','asc')->get();
+        return view('Formularios.PromotorMarca.Registro',['canales' =>  $canales]);
+    }
+
 
 }
