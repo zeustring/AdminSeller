@@ -17,6 +17,7 @@ use App\PagoMembresia;
 use App\Empleado;
 use App\PromotorMarca;
 use App\TipoCarta;
+use App\TipoPendiente;
 use Auth;
 use DB;
 class FormulariosController extends Controller
@@ -209,6 +210,15 @@ class FormulariosController extends Controller
     {
         $canales      =       Canal::orderBy('nombre','asc')->get();
         return view('Formularios.PromotorMarca.Registro',['canales' =>  $canales]);
+    }
+
+
+    public function PendienteCliente($id)
+    {
+        $PendienteCliente      =     Cliente::find($id);
+        $TipoPendiente         =     TipoPendiente::all();
+        return view('Formularios.Clientes.Pendiente',['cliente'       => $PendienteCliente,
+                                                      'TipoPendiente' => $TipoPendiente]);     
     }
 
 

@@ -33,7 +33,7 @@ class EmpleadosController extends Controller
     	$empleado->password          =  bcrypt(substr($request['NoEmpleado'], -4)); 
     	$empleado->id_jerarquia      =  $request['IdJerarquia'];
         $empleado->id_promotor_marca =  $request['IdPromotorMarca'];
-    	$empleado->id_estatus        =  2;
+    	$empleado->id_estatus        =  $request['IdPromotorMarca'];
     	$empleado->id_canal          =  $request['IdCanal'];
     	$empleado->save();
     	}

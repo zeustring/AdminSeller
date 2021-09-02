@@ -51,7 +51,7 @@
                 </div>
                 <center>
                 <label class="text-warning" style="font-size: 20px;">
-                  $40.<label style="font-size: 12px;
+                  $50.<label style="font-size: 12px;
                                     margin-top: 3px;
                                     position: absolute;"
                                     class="text-warning">00

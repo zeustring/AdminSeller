@@ -99,6 +99,14 @@
                               id="{{$row->id}}">
                         <i class="fa fa-edit"></i>
                       </button>
+                      <button class="btn btn-warning btn-xs PendienteCliente"
+                              style="font-size: 15px;"
+                              data-toggle="modal" 
+                              data-target="#modal-lg"
+                              id="{{$row->id}}">
+                         <i class="fas fa-thumbtack"></i>
+                      </button>
+                     
                      @endif
                       </button>
                       </center>  
@@ -157,6 +165,24 @@
                   $(".CartaCliente").click(function(){
                             var id         =  $(this).attr('id');
                             var urls       =  "<?php echo url('Formularios/CartaCliente')  ?>";
+                            $("#RespuestaModal").css('display','none');
+                             $.ajax({
+                                      type: "GET",
+                                      url: urls+'/'+id,
+                                      dataType: "html",
+                                      
+                                      error: function(){
+                                            alert("error petición actualize o cantacte al programador");
+                                      },
+                                      success: function(data){
+                                        $("#RespuestaModal").css('display','block');
+                                       $("#RespuestaModal").html(data);
+                                }
+                          });
+                  });
+                   $(".PendienteCliente").click(function(){
+                            var id         =  $(this).attr('id');
+                            var urls       =  "<?php echo url('Formularios/PendienteCliente')  ?>";
                             $("#RespuestaModal").css('display','none');
                              $.ajax({
                                       type: "GET",

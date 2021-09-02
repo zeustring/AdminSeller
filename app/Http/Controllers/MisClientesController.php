@@ -29,10 +29,10 @@ class MisClientesController extends Controller
     										->count();
     	if($seacrhClient == 1)
     	{
-    		dd("Cliente ya Existe ");
-    	}else{
-    	
-
+    		dd("Cliente ya Existe intentalo de nuevo");
+    	}else if($request['IdColonia'] == 0){
+    	    dd("Olvidaste colocar una colonia intentalo de nuevo");
+        }else{
     	$TiendaEstado          =     Sucursal::find(Auth::user()->id_sucursal);
     	$cliente               =     new Cliente;
     	$cliente->cu1          =     $request['cu1'];

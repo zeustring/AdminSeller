@@ -67,7 +67,7 @@ align-items: center;
 	left: -20px; 
 	width: 700px;
 	height: 400px;
-	opacity: 0.3;
+	opacity: 0.6;
 	z-index: -1;
 }
 .cupon-campo{

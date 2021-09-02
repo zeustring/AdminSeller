@@ -23,7 +23,6 @@
   <!-- Google Font: Source Sans Pro -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <style type="text/css">
   .Telcel{
@@ -183,7 +182,10 @@
                         margin-top: -5px;">
                  {{Auth::user()->promotorMarca->nombre}} </b>
            </label><br>
-          <label style="color: white;">{{Auth::user()->sucursal->nombre}}</label><br>
+          <label style="color: white;">
+                                 {{Auth::user()->sucursal->no_sucursal}}
+                                 {{Auth::user()->sucursal->nombre}}
+          </label><br>
           <label style="color: white;">{{Auth::user()->jerarquia->nombre}}</label><br>
           <label style="color: white;">{{Auth::user()->nombre}}</label><br>
           <label style="color: white;">{{Auth::user()->no_empleado}}</label><br>
@@ -205,15 +207,39 @@
               </p>
             </a>
            </li>
-          <li class="nav-item has-treeview">
-            <a href="{{url('MisClientes')}}" class="nav-link ">
+
+
+
+           <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
-                Mis Clientes
+                Clientes
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+          <li class="nav-item has-treeview">
+            <a href="{{url('MisClientes')}}" class="nav-link ">
+             <i class="far fa-circle nav-icon"></i>
+              <p>
+                Mi Lista
                
               </p>
             </a>
            </li>
+              <li class="nav-item">
+                <a href="{{url('Pendientes')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pendientes</p>
+                </a>
+              </li>
+             
+          
+            </ul>
+          </li>
+
+
           <li class="nav-item has-treeview">
             <a href="{{url('Cartas')}}" class="nav-link ">
               <i class="nav-icon fas fa-envelope-open-text"></i>
